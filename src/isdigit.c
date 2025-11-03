@@ -6,11 +6,9 @@
 /*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:49:56 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/03 15:59:52 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/03 17:30:11 by smenard          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isdigit(int c)
 {
