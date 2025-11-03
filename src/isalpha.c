@@ -6,13 +6,11 @@
 /*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:08:49 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/03 15:36:43 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/03 17:20:29 by smenard          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalpha(char c)
+int	ft_isalpha(int c)
 {
 	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 		return (1024);
