@@ -10,14 +10,14 @@
 - [x] bzero
 - [x] memcpy
 - [x] memmove
-- [] strlcpy
-- [] strlcat
-- [] toupper
-- [] tolower
-- [] strchr
-- [] strrchr
-- [] strncmp
-- [] memchr
-- [] memcmp
-- [] strnstr
-- [] atoi
+- [ ] strlcpy
+- [ ] strlcat
+- [ ] toupper
+- [ ] tolower
+- [ ] strchr
+- [ ] strrchr
+- [ ] strncmp
+- [ ] memchr
+- [ ] memcmp
+- [ ] strnstr
+- [ ] atoi
