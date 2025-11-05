@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 11:42:09 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/05 11:43:33 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/05 11:53:11 by smenard          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	while (n--)
-	{
-		*((unsigned char *) s) = 0;
-		s--;
-	}
+	ft_memset(s, 0, n);
 }
