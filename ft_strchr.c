@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 13:24:01 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/06 13:40:01 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/06 15:52:53 by smenard          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)s);
 		s++;
 	}
-	if (!c)
+	if (!(unsigned char) c)
 		return ((char *)s);
 	return (NULL);
 }
