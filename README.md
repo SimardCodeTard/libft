@@ -11,7 +11,7 @@
 - [x] memcpy
 - [x] memmove
 - [x] strlcpy
-- [ ] strlcat
+- [x] strlcat
 - [ ] toupper
 - [ ] tolower
 - [ ] strchr
