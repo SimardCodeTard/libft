@@ -14,7 +14,8 @@ SRC_FILES = ft_isascii.c \
 		ft_strlcpy.c \
 		ft_isalpha.c \
 		ft_strlen.c \
-		ft_strlcat.c
+		ft_strlcat.c \
+		ft_toupper.c
 
 SRC_DIR = ./
 
