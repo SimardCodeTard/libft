@@ -21,3 +21,26 @@
 - [x] memcmp
 - [ ] strnstr
 - [ ] atoi
+- [ ] calloc
+- [ ] strdup
+- [ ] substr
+- [ ] strjoin
+- [ ] strtrim
+- [ ] split
+- [ ] itoa
+- [ ] strmapi
+- [ ] striteri
+- [ ] putchar_fd
+- [ ] putstr_fd
+- [ ] putendl_fd
+- [ ] putnbr_fd
+## Bonus part
+- [ ] lstnew
+- [ ] lstadd_front
+- [ ] lstsize
+- [ ] lstlast
+- [ ] lstadd_back
+- [ ] lstdel_one
+- [ ] lstclear
+- [ ] lstiter
+- [ ] lstmap
