@@ -17,7 +17,7 @@
 - [x] strchr
 - [x] strrchr
 - [x] strncmp
-- [ ] memchr
+- [x] memchr
 - [ ] memcmp
 - [ ] strnstr
 - [ ] atoi

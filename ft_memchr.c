@@ -1,0 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/06 15:25:27 by smenard           #+#    #+#             */
+/*   Updated: 2025/11/06 15:31:33 by smenard          ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	const unsigned char	*cst_s = (unsigned char *) s;
+	const unsigned char	cst_c = (unsigned char) c;
+	size_t				i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (cst_s[i] == cst_c)
+			return ((void *) &(s[i]));
+		i++;
+	}
+	return (NULL);
+}
