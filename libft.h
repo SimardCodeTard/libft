@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:07:56 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/06 13:21:32 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/06 13:23:52 by smenard          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_toupper(int c);
 
 int		ft_tolower(int c);
+
+char	*ft_strchr(const char *s, int c);
 
 #endif
