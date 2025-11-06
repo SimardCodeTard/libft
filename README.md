@@ -15,7 +15,7 @@
 - [x] toupper
 - [x] tolower
 - [x] strchr
-- [ ] strrchr
+- [x] strrchr
 - [ ] strncmp
 - [ ] memchr
 - [ ] memcmp
