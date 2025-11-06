@@ -13,7 +13,7 @@
 - [x] strlcpy
 - [x] strlcat
 - [x] toupper
-- [ ] tolower
+- [x] tolower
 - [ ] strchr
 - [ ] strrchr
 - [ ] strncmp
