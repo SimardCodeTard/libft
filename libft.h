@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:07:56 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/06 15:24:57 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/06 15:34:35 by smenard          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 void	*ft_memchr(const void *s, int c, size_t n);
+
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 #endif
