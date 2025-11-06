@@ -21,7 +21,8 @@ SRC_FILES = ft_isascii.c \
 		ft_strrchr.c \
 		ft_strncmp.c \
 		ft_memchr.c \
-		ft_memcmp.c
+		ft_memcmp.c \
+		ft_strnstr.c
 
 SRC_DIR = ./
 
