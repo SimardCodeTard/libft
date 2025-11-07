@@ -20,7 +20,7 @@
 - [x] memchr
 - [x] memcmp
 - [x] strnstr
-- [ ] atoi
+- [x] atoi
 - [ ] calloc
 - [ ] strdup
 - [ ] substr
