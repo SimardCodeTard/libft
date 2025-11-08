@@ -22,7 +22,7 @@
 - [x] strnstr
 - [x] atoi
 - [x] calloc
-- [ ] strdup
+- [x] strdup
 - [ ] substr
 - [ ] strjoin
 - [ ] strtrim
