@@ -25,6 +25,7 @@ SRC_FILES = ft_isascii.c \
 		ft_strnstr.c \
 		ft_atoi.c \
 		ft_calloc.c \
+		ft_strdup.c
 
 SRC_DIR = ./
 
