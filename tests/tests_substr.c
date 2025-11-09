@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_strdup.c                                     :+:      :+:    :+:   */
+/*   tests_substr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 14:55:31 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 15:07:39 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/09 15:32:49 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "../libft.h"
-#include "macros/colors.h"
-#include "macros/test_helpers.h"
-#include "struct/test_case.h"
+#include "tests.h"
 
 int	main(void)
 {
-	const t_test_case	tests[] = {
-	{"Basic substring", "Hello, world!", 0, 5, "Hello", 0},
-	{"Middle substring", "Hello, world!", 7, 5, "world", 0},
-	{"Length exceeds source", "Hello, world!", 10, 50, "ld!", 1},
-	{"Start beyond length", "Hello, world!", 100, 5, "", 1},
-	{"Zero length", "Hello, world!", 5, 0, "", 0},
-	{"Empty string", "", 0, 5, "", 1},
-	{"NULL input", NULL, 0, 5, NULL, 1},
-	{"Partial copy", "Hello, world!", 1, 3, "ell", 0},
-	{"Large string", NULL, 0, 0, "AAAAAAAAAA", 0}, // special case
-	{"Edge boundary", "abcd", 2, 1, "c", 0}
+	const t_test_case_string	tests[] = {
+	{"Basic substring", "Hello, world!", 0, 5, "Hello", false},
+	{"Middle substring", "Hello, world!", 7, 5, "world", false},
+	{"Length exceeds source", "Hello, world!", 10, 50, "ld!", true},
+	{"Start beyond length", "Hello, world!", 100, 5, "", true},
+	{"Zero length", "Hello, world!", 5, 0, "", false},
+	{"Empty string", "", 0, 5, "", true},
+	{"NULL input", NULL, 0, 5, NULL, true},
+	{"Partial copy", "Hello, world!", 1, 3, "ell", false},
+	{"Large string", NULL, 0, 0, "AAAAAAAAAA", false}, // special case
+	{"Edge boundary", "abcd", 2, 1, "c", false}
 	};
-	const int			total = sizeof(tests) / sizeof(t_test_case);
+	const int			total = sizeof(tests) / sizeof(t_test_case_string);
 	const int			special_case_index = 8;
 	int					passed;
 	int					success;
