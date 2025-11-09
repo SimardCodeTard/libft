@@ -24,7 +24,7 @@
 - [x] calloc
 - [x] strdup
 - [x] substr << **TODO: Review with peers**
-- [ ] strjoin
+- [x] strjoin
 - [ ] strtrim
 - [ ] split
 - [ ] itoa

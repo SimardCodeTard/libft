@@ -1,4 +1,4 @@
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -Werror
 
 CC = cc
 
@@ -26,7 +26,8 @@ SRC_FILES = ft_isascii.c \
 		ft_atoi.c \
 		ft_calloc.c \
 		ft_strdup.c \
-		ft_substr.c
+		ft_substr.c \
+		ft_strjoin.c
 
 SRC_DIR = ./
 
