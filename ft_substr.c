@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: smenard <simon.menardp03@gmail.com>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/08 20:37:27 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/08 20:48:44 by smenard          ###   ########.fr       */
-/*                                                                            */
+/*\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*/
+/*\t\t\t\t\t\t\t\t\t\t\t\t\t\t:::\t  ::::::::   */
+/*   ft_substr.c\t\t\t\t\t\t\t\t\t\t:+:\t  :+:\t:+:   */
+/*\t\t\t\t\t\t\t\t\t\t\t\t\t+:+ +:+\t\t +:+\t */
+/*   By: smenard <smenard@student.42.fr>\t\t\t+#+  +:+\t   +#+\t\t*/
+/*\t\t\t\t\t\t\t\t\t\t\t\t+#+#+#+#+#+   +#+\t\t   */
+/*   Created: 2025/11/09 14:06:39 by smenard\t\t   #+#\t#+#\t\t\t */
+/*   Updated: 2025/11/09 14:45:32 by smenard\t\t  ###   ########.fr\t   */
+/*\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*/
 /* ************************************************************************** */
 
 #include "libft.h"
@@ -16,19 +16,25 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*subs;
 	size_t	i;
-	const size_t	s_len = ft_strlen(s);
+	size_t	s_len;
 
-	if (s_len < start + len + 1)
+	if (!s)
 		return (NULL);
+	s_len = ft_strlen(s);
 	subs = malloc(len + 1);
 	if (!subs)
 		return (NULL);
 	i = 0;
-	while (s[start + i] && i < len)
+	if (start >= s_len)
+	{
+		subs[0] = '\0';
+		return (subs);
+	}
+	while (start < s_len && s[start + i] && i < len)
 	{
 		subs[i] = s[start + i];
 		i++;
 	}
-	subs[i] = 0;
+	subs[i] = '\0';
 	return (subs);
 }
