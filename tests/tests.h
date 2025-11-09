@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 15:30:38 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 16:35:54 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/09 19:52:10 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,9 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdbool.h>
+# include <ctype.h>
 # include "../libft.h"
+
+char	*convert_string(char *s);
+
 #endif
