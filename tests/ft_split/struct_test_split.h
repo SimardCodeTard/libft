@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   struct_test_split.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 15:30:38 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 21:42:17 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/09 21:28:05 by smenard           #+#    #+#             */
+/*   Updated: 2025/11/09 21:40:31 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
-# include "macros/colors.h"
-# include "macros/test_helpers.h"
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdbool.h>
-# include <ctype.h>
-# include "../libft.h"
+#ifndef STRUCT_TEST_SPLIT_H
+# define STRUCT_TEST_SPLIT_H
 
-char	*convert_string(char *s);
-
-int		strscmp(const char **ss1, const char **ss2);
+typedef struct s_test_case_split
+{
+	const char		*desc;
+	const char		*s;
+	const char		c;
+	const char		**expected;
+}	t_test_case_split;
 
 #endif
