@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 16:03:18 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 16:58:11 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/09 20:16:31 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	main(void)
 	{"NULL s2", "Hello,", NULL, "Hello,", false},
 	{"Both NULL", NULL, NULL, "", false},
 	};
-	const int					total = sizeof(tests) / sizeof(t_test_case_strjoin);
+	const int					total = sizeof(tests)
+		/sizeof(t_test_case_strjoin);
 	int							passed;
 	int							success;
 	char						*result;
@@ -44,15 +45,16 @@ int	main(void)
 			success = 1;
 		if (success)
 		{
-			printf(GREEN "[%d] %-25s -> Success!\n" RESET, i + 1, tests[i].desc);
+			printf(GREEN "[%d] %-25s -> Success!\n" RESET, i + 1,
+				tests[i].desc);
 			passed++;
 		}
 		else
 		{
 			if (!result)
 				result = "NULL";
-			printf(RED "[%d] %-25s -> Failure! Got: \"%s\" expected : \"%s\"\n" RESET,
-				i + 1, tests[i].desc, result, tests[i].expected);
+			printf(RED "[%d] %-25s -> Failure! Got: \"%s\" expected : \"%s\"\n"
+				RESET, i + 1, tests[i].desc, result, tests[i].expected);
 		}
 		SAFE_FREE(result);
 		i++;

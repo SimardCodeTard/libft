@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   struct_test_strtrim.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 17:00:26 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 20:47:00 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/09 15:09:26 by smenard           #+#    #+#             */
+/*   Updated: 2025/11/09 17:59:30 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef STRUCT_TEST_STRTRIM_H
+# define STRUCT_TEST_STRTRIM_H
+# include "../tests.h"
 
-char	*ft_strtrim(const char *s1, const char *set)
+typedef struct s_test_case_strtrim
 {
-	size_t			start;
-	size_t			end;
-	size_t			s1_len;
+	const char	*desc;
+	const char	*s1;
+	const char	*set;
+	const char	*expected;
+}	t_test_case_strtrim;
 
-	if (!s1)
-		return (ft_calloc(1, sizeof(char)));
-	s1_len = ft_strlen(s1);
-	end = s1_len - 1;
-	start = 0;
-	while (ft_strchr(set, s1[start]))
-		start++;
-	while (ft_strchr(set, s1[end]))
-		end--;
-	return (ft_substr(s1, start, end - start + 1));
-}
+#endif
