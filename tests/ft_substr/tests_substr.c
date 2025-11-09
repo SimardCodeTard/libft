@@ -6,15 +6,16 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 14:55:31 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 15:32:49 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/09 16:36:48 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include "../tests.h"
+#include "struct_test_substr.h"
 
 int	main(void)
 {
-	const t_test_case_string	tests[] = {
+	const t_test_case_substr	tests[] = {
 	{"Basic substring", "Hello, world!", 0, 5, "Hello", false},
 	{"Middle substring", "Hello, world!", 7, 5, "world", false},
 	{"Length exceeds source", "Hello, world!", 10, 50, "ld!", true},
@@ -23,16 +24,16 @@ int	main(void)
 	{"Empty string", "", 0, 5, "", true},
 	{"NULL input", NULL, 0, 5, NULL, true},
 	{"Partial copy", "Hello, world!", 1, 3, "ell", false},
-	{"Large string", NULL, 0, 0, "AAAAAAAAAA", false}, // special case
+	{"Large string", NULL, 0, 0, "AAAAAAAAAA", false},
 	{"Edge boundary", "abcd", 2, 1, "c", false}
 	};
-	const int			total = sizeof(tests) / sizeof(t_test_case_string);
-	const int			special_case_index = 8;
-	int					passed;
-	int					success;
-	char				*result;
-	char				*big;
-	int					i;
+	const int					total = sizeof(tests) / sizeof(t_test_case_substr);
+	const int					special_case_index = 8;
+	int							passed;
+	int							success;
+	char						*result;
+	char						*big;
+	int							i;
 
 	passed = 0;
 	i = 0;
