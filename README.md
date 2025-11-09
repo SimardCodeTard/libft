@@ -23,7 +23,7 @@
 - [x] atoi
 - [x] calloc
 - [x] strdup
-- [ ] substr
+- [x] substr << **TODO: Review with peers**
 - [ ] strjoin
 - [ ] strtrim
 - [ ] split
