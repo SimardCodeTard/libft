@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:43:01 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/06 20:11:53 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/09 16:25:19 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s)
 	size_t			i;
 
 	i = 0;
-	ns = malloc(s_len + 1);
+	ns = malloc((s_len + 1) * sizeof(char));
 	if (!ns)
 		return (NULL);
 	while (s[i])
