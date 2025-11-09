@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 14:55:31 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 16:36:48 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/09 20:18:03 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	main(void)
 	{"Large string", NULL, 0, 0, "AAAAAAAAAA", false},
 	{"Edge boundary", "abcd", 2, 1, "c", false}
 	};
-	const int					total = sizeof(tests) / sizeof(t_test_case_substr);
+	const int					total = sizeof(tests)
+		/ sizeof(t_test_case_substr);
 	const int					special_case_index = 8;
 	int							passed;
 	int							success;
@@ -60,15 +61,16 @@ int	main(void)
 			success = 1;
 		if (success)
 		{
-			printf(GREEN "[%2d] %-25s -> Success!\n" RESET, i + 1, tests[i].desc);
+			printf(GREEN "[%2d] %-25s -> Success!\n"
+				RESET, i + 1, tests[i].desc);
 			passed++;
 		}
 		else
 		{
 			if (!result)
 				result = "NULL";
-			printf(RED "[%2d] %-25s -> Failure! Got: \"%s\"\n" RESET,
-				i + 1, tests[i].desc, result);
+			printf(RED "[%2d] %-25s -> Failure! Got: \"%s\" expected : \"%s\"\n"
+				RESET, i + 1, tests[i].desc, result, tests[i].expected);
 		}
 		SAFE_FREE(result);
 		i++;
