@@ -6,46 +6,33 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 18:04:50 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 20:14:45 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/09 22:16:46 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 
-static char	*convert_unprintable_char( char c)
+static char	*convert_unprintable_char(char c)
 {
+	char	*special_unprintable_chars[14];
 	char	*str;
 
+	special_unprintable_chars['\a'] = "\\a";
+	special_unprintable_chars['\b'] = "\\b";
+	special_unprintable_chars['\t'] = "\\t";
+	special_unprintable_chars['\n'] = "\\n";
+	special_unprintable_chars['\v'] = "\\v";
+	special_unprintable_chars['\f'] = "\\f";
+	special_unprintable_chars['\r'] = "\\r";
 	str = malloc(5);
 	if (!str)
 		return (NULL);
-	switch (c)
-	{
-		case 7:
-			sprintf(str, "%s", "\\a");
-		break ;
-		case 8:
-			sprintf(str, "%s", "\\b");
-		break ;
-		case 9:
-			sprintf(str, "%s", "\\t");
-		break ;
-		case 10:
-			sprintf(str, "%s", "\\n");
-		break ;
-		case 11:
-			sprintf(str, "%s", "\\v");
-		break ;
-		case 12:
-			sprintf(str, "%s", "\\f");
-		break ;
-		case 13:
-			sprintf(str, "%s", "\\r");
-		break ;
-		default :
-			sprintf(str, c < 10 ? "\\x0%d" : "\\x%d", c);
-		break ;
-	}
+	if (c >= '\a' && c <= '\r')
+		sprintf(str, "%s", special_unprintable_chars[(int) c]);
+	else if (c < 10)
+		sprintf(str, "\\x0%d", c);
+	else
+		sprintf(str, "\\x%d", c);
 	return (str);
 }
 
