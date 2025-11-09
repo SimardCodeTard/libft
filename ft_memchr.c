@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 15:25:27 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/06 15:31:33 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/09 16:08:56 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (cst_s[i] == cst_c)
-			return ((void *) &(s[i]));
+			return ((void *)s + i);
 		i++;
 	}
 	return (NULL);
