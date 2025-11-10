@@ -30,10 +30,10 @@
 - [x] itoa
 - [x] strmapi
 - [x] striteri
-- [ ] putchar_fd
-- [ ] putstr_fd
-- [ ] putendl_fd
-- [ ] putnbr_fd
+- [x] putchar_fd
+- [x] putstr_fd
+- [x] putendl_fd
+- [x] putnbr_fd
 ## Bonus part
 - [ ] lstnew
 - [ ] lstadd_front
