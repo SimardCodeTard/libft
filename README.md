@@ -23,11 +23,10 @@
 - [x] atoi
 - [x] calloc
 - [x] strdup
-**TODO FOR ALL OF THE FOLLOWING: Review with peers**
 - [x] substr
 - [x] strjoin
 - [x] strtrim
-- [ ] split
+- [x] split
 - [ ] itoa
 - [ ] strmapi
 - [ ] striteri
