@@ -28,7 +28,7 @@
 - [x] strtrim
 - [x] split
 - [x] itoa
-- [ ] strmapi
+- [x] strmapi
 - [ ] striteri
 - [ ] putchar_fd
 - [ ] putstr_fd
