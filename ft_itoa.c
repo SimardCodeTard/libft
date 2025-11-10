@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:18:00 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 14:29:08 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:12:12 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ char	*ft_itoa(int n)
 	i = 0;
 	n = ft_abs(n);
 	res = ft_calloc(len + 1, sizeof(char));
+	if (!res)
+		return (NULL);
 	if (n == INT_MIN)
 		return (ft_memcpy(res, "-2147483648", 11));
-	if (!res)
-		return (ft_calloc(1, sizeof(char)));
 	while (i < len)
 	{
 		res[len - i - 1] = (n % 10) + '0';

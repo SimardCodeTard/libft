@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:48:22 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 14:58:23 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:14:52 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 		return (ft_calloc(1, sizeof(char)));
 	res = ft_calloc(ft_strlen(s) + 1, sizeof(char));
 	if (!res)
-		return (ft_calloc(1, sizeof(char)));
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{

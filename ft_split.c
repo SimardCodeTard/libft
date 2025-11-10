@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 21:12:33 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 13:12:48 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 16:09:58 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	**free_splitted(char **splitted, int k)
 		k--;
 	}
 	free(splitted);
-	return (ft_calloc(1, sizeof(char *)));
+	return (NULL);
 }
 
 static size_t	count_words(const char *s, char c)
@@ -53,6 +53,8 @@ char	*extract_word(const char *s, char c, unsigned int *i)
 	if (*i < j)
 	{
 		word = ft_substr(s, *i, j - *i);
+		if (!word)
+			return ((char *) -1);
 		*i = j;
 	}
 	return (word);
@@ -69,7 +71,7 @@ char	**ft_split(const char *s, char c)
 		return (ft_calloc(1, sizeof(char *)));
 	splitted = ft_calloc(count_words(s, c) + 1, sizeof(char *));
 	if (!splitted)
-		return (ft_calloc(1, sizeof(char *)));
+		return (NULL);
 	i = 0;
 	k = 0;
 	while (s[i])
@@ -77,9 +79,9 @@ char	**ft_split(const char *s, char c)
 		curr_word = extract_word(s, c, &i);
 		if (curr_word)
 		{
+			if (curr_word == (char *) -1)
+				return (free_splitted(splitted, k));
 			splitted[k++] = curr_word;
-			if (!splitted[k - 1])
-				return (free_splitted(splitted, k - 1));
 		}
 	}
 	return (splitted);
