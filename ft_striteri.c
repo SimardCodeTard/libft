@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 14:33:35 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 15:21:26 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/10 15:14:09 by smenard           #+#    #+#             */
+/*   Updated: 2025/11/10 15:24:27 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	ft_tests_itoa();
-	ft_tests_split();
-	ft_tests_strjoin();
-	ft_tests_strtrim();
-	ft_tests_substr();
-	ft_tests_itoa();
-	ft_tests_strmapi();
-	ft_tests_striteri();
-	return (EXIT_SUCCESS);
+	uint32_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

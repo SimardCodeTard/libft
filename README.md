@@ -29,7 +29,7 @@
 - [x] split
 - [x] itoa
 - [x] strmapi
-- [ ] striteri
+- [x] striteri
 - [ ] putchar_fd
 - [ ] putstr_fd
 - [ ] putendl_fd

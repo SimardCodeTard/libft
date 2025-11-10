@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:07:56 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 14:55:35 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 15:15:23 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,7 @@ char	**ft_split(const char *s, char c);
 char	*ft_itoa(int n);
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif

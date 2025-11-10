@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   struct_test_striteri.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 14:33:35 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 15:21:26 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/10 15:18:11 by smenard           #+#    #+#             */
+/*   Updated: 2025/11/10 15:24:49 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#ifndef STRUCT_TEST_STRITERI_H
+# define STRUCT_TEST_STRITERI_H
 
-int	main(void)
+typedef struct s_test_case_striteri
 {
-	ft_tests_itoa();
-	ft_tests_split();
-	ft_tests_strjoin();
-	ft_tests_strtrim();
-	ft_tests_substr();
-	ft_tests_itoa();
-	ft_tests_strmapi();
-	ft_tests_striteri();
-	return (EXIT_SUCCESS);
-}
+	const char	*desc;
+	const char	*s;
+	void		(*f)(unsigned int, char*);
+	const char	*expected;
+}	t_test_case_striteri;
+
+#endif
