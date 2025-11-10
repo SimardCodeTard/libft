@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strscmp.c                                          :+:      :+:    :+:   */
+/*   print_strs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 21:29:39 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 13:03:26 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/10 11:03:07 by smenard           #+#    #+#             */
+/*   Updated: 2025/11/10 12:47:10 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 
-int	strscmp(const char **ss1, const char **ss2)
+void	print_strs(char **strs)
 {
-	int	i;
-	int	j;
-	int	cmp_res;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	if ((ss1[i] && !ss2[i]) || (!ss1[i] && ss2[i]))
-		return (ss1[i] - ss2[i]);
-	while ((ss1[i] && ss2[i]))
+	printf("{ ");
+	while (strs[i])
 	{
-		cmp_res = strcmp(ss1[i], ss2[i]);
-		if (cmp_res)
-			return (cmp_res);
+		printf("\"%s\"", strs[i]);
+		printf(", ");
 		i++;
 	}
-	if ((ss1[i] || ss2[i]))
-		return (ss1[i] - ss2[i]);
-	return (0);
+	printf("NULL }");
 }

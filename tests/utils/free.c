@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strscmp.c                                          :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 21:29:39 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 13:03:26 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/10 11:11:47 by smenard           #+#    #+#             */
+/*   Updated: 2025/11/10 11:24:13 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 
-int	strscmp(const char **ss1, const char **ss2)
+void	free_arr(void **arr, size_t size)
 {
-	int	i;
-	int	j;
-	int	cmp_res;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	if ((ss1[i] && !ss2[i]) || (!ss1[i] && ss2[i]))
-		return (ss1[i] - ss2[i]);
-	while ((ss1[i] && ss2[i]))
+	while (arr[i * size])
 	{
-		cmp_res = strcmp(ss1[i], ss2[i]);
-		if (cmp_res)
-			return (cmp_res);
+		free(arr[i * size]);
 		i++;
 	}
-	if ((ss1[i] || ss2[i]))
-		return (ss1[i] - ss2[i]);
-	return (0);
+	if (arr)
+		free(arr);
 }

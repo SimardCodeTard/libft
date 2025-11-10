@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 21:34:02 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 21:53:24 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 13:15:27 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ int	main(void)
 	static const char		*expected_split_3_words[]
 		= {"Hello", "world!", "Hi, mom!", NULL};
 	static const char		*expected_split_0_words[] = {NULL};
+	static const char		*expected_split_full_sep[] = {NULL};
+	static const char		*expected_split_bababooey[] = {"hello!", NULL};
 	const t_test_case_split	tests[] = {
 	{"No split", "Hello, world!", ';', expected_no_split},
 	{"Basic split", "Hello;world!", ';', expected_split_2_words},
 	{"Split with surrounding separators", ";Hello, world!;", ';',
-		expected_split_2_words},
+		expected_no_split},
 	{"Split with surrounding separators and multiple words", ";Hello;world!;",
 		';', expected_split_2_words},
 	{"Split with multiple surrounding separators and multiple words",
@@ -33,9 +35,11 @@ int	main(void)
 	{"Split with multiple surrounding separators and multiple words",
 		";;;Hello;world!;;;", ';', expected_split_2_words},
 	{"Split with multiple surrounding separators and multiple words (uneven)",
-		";;;Hello;world!;Hi, mom ,;;", ';', expected_split_3_words},
+		";;;Hello;world!;Hi, mom!;;", ';', expected_split_3_words},
 	{"Split with empty string", "", ';', expected_split_0_words},
 	{"Split with NULL", NULL, ';', expected_split_0_words},
+	{"Split with only sep", ";;;;;;;;;;", ';', expected_split_full_sep},
+	{"Split with only sep", "hello!", ' ', expected_split_bababooey}
 	};
 	const int				total = sizeof(tests)
 		/ sizeof(t_test_case_split);
@@ -52,22 +56,34 @@ int	main(void)
 		result = NULL;
 		success = 0;
 		result = ft_split(tests[i].s, tests[i].c);
-		if (!strscmp(tests[i].expected, result))
+		if (!strscmp(tests[i].expected, (const char **) result))
 			success = 1;
 		if (success)
 		{
-			printf(GREEN "[%d] %-25s -> Success!\n" RESET, i + 1,
-				tests[i].desc);
+			printf(GREEN "[%d] %-75s -> Success!\n%s", i + 1, tests[i].desc,
+				RESET);
 			passed++;
 		}
 		else
 		{
 			if (!result)
-				result = "NULL";
-			printf(RED "[%d] %-25s -> Failure! Got: \"%s\" expected : \"%s\"\n"
-				RESET, i + 1, tests[i].desc, result, tests[i].expected);
+			{
+				printf(RED "[%d] %-75s -> Failure!%s\nFor s = \"%s\"\nGot:\nNULL\nExpected:\n",
+					i + 1, tests[i].desc, RESET, tests[i].s);
+				print_strs((char **) tests[i].expected);
+				printf("\n");
+			}
+			else
+			{
+				printf(RED "[%d] %-75s -> Failure!%s\nFor s = \"%s\"\nGot:\n", i + 1,
+					tests[i].desc, RESET, tests[i].s);
+				print_strs(result);
+				printf("\nExpected:\n");
+				print_strs((char **) tests[i].expected);
+				printf("\n" RESET);
+			}
 		}
-		SAFE_FREE(result);
+		free_arr((void **)result, sizeof(char));
 		i++;
 	}
 	printf("\n===== Summary =====\n");

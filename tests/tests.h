@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 15:30:38 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 21:42:17 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 11:17:06 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,9 @@
 char	*convert_string(char *s);
 
 int		strscmp(const char **ss1, const char **ss2);
+
+void	print_strs(char **strs);
+
+void	free_arr(void **arr, size_t size);
 
 #endif
