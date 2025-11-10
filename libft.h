@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:07:56 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 13:23:47 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 14:55:35 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
+# include <stdint.h>
 
 int		ft_isalpha(int c);
 
@@ -72,5 +73,7 @@ char	*ft_strtrim(const char *s1, const char *set);
 char	**ft_split(const char *s, char c);
 
 char	*ft_itoa(int n);
+
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 15:30:38 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 14:33:26 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 15:08:19 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	ft_tests_strjoin(void);
 void	ft_tests_strtrim(void);
 
 void	ft_tests_substr(void);
+
+void	ft_tests_strmapi(void);
 
 char	*convert_string(char *s);
 

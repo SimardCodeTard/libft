@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   struct_test_strmapi.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 14:33:35 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 15:08:38 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/10 15:01:05 by smenard           #+#    #+#             */
+/*   Updated: 2025/11/10 15:03:40 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#ifndef STRUCT_TEST_STRMAPI_H
+# define STRUCT_TEST_STRMAPI_H
 
-int	main(void)
+typedef struct s_test_case_strmapi
 {
-	ft_tests_itoa();
-	ft_tests_split();
-	ft_tests_strjoin();
-	ft_tests_strtrim();
-	ft_tests_substr();
-	ft_tests_itoa();
-	ft_tests_strmapi();
-	return (EXIT_SUCCESS);
-}
+	const char	*desc;
+	const char	*s;
+	char		(*f)(unsigned int, char);
+	const char	*expected;
+}	t_test_case_strmapi;
+
+#endif

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 14:33:35 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 15:08:38 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/10 14:48:22 by smenard           #+#    #+#             */
+/*   Updated: 2025/11/10 14:58:23 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include "libft.h"
 
-int	main(void)
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	ft_tests_itoa();
-	ft_tests_split();
-	ft_tests_strjoin();
-	ft_tests_strtrim();
-	ft_tests_substr();
-	ft_tests_itoa();
-	ft_tests_strmapi();
-	return (EXIT_SUCCESS);
+	uint32_t	i;
+	char		*res;
+
+	if (!s)
+		return (ft_calloc(1, sizeof(char)));
+	res = ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	if (!res)
+		return (ft_calloc(1, sizeof(char)));
+	i = 0;
+	while (s[i])
+	{
+		res[i] = f(i, s[i]);
+		i++;
+	}
+	return (res);
 }
