@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_strs.c                                       :+:      :+:    :+:   */
+/*   tests.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 11:03:07 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 12:47:10 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/10 19:21:13 by simard            #+#    #+#             */
+/*   Updated: 2025/11/11 14:22:10 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../tests.h"
+#ifndef TEST_RESULT_H
+# define TEST_RESULT_H
+# include "../tests.h"
 
-void	print_strs(char **strs)
+typedef struct s_test_result
 {
-	size_t	i;
+	char	*desc;
+	char	*expected;
+	char	*result;
+	bool	success;
+}	t_test_result;
 
-	i = 0;
-	printf("{ ");
-	while (strs[i])
-	{
-		printf("\"%s\"", strs[i]);
-		printf(", ");
-		i++;
-	}
-	printf("NULL }");
-}
+typedef struct s_test_set_result
+{
+	unsigned int	success_count;
+	unsigned int	failure_count;
+	const char		*name;
+}	t_test_set_result;
+
+typedef struct s_test
+{
+	t_test_result	(*f)(void *);
+	void *params;
+}	t_test;
+
+
+#endif

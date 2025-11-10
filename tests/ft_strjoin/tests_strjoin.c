@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 16:03:18 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 14:41:56 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 13:44:23 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_tests_strjoin(void)
 			success = 1;
 		if (success)
 		{
-			printf(GREEN "[%2d] %-80s -> Success!\n" RESET, i + 1,
+			printf(KGRN "[%2d] %-80s -> Success!\n" KNRM, i + 1,
 				tests[i].desc);
 			passed++;
 		}
@@ -53,16 +53,16 @@ void	ft_tests_strjoin(void)
 		{
 			if (!result)
 				result = "NULL";
-			printf(RED "[%2d] %-80s -> Failure! Got: \"%s\" expected : \"%s\"\n"
-				RESET, i + 1, tests[i].desc, result, tests[i].expected);
+			printf(KRED "[%2d] %-80s -> Failure! Got: \"%s\" expected : \"%s\"\n"
+				KNRM, i + 1, tests[i].desc, result, tests[i].expected);
 		}
 		SAFE_FREE(result);
 		i++;
 	}
 	printf("\n===== Summary =====\n");
 	if (passed == total)
-		printf(GREEN "%d/%d tests passed ✅\n" RESET, passed, total);
+		printf(KGRN "%d/%d tests passed ✅\n" KNRM, passed, total);
 	else
-		printf(RED "%d/%d tests passed ❌\n" RESET, passed, total);
+		printf(KRED "%d/%d tests passed ❌\n" KNRM, passed, total);
 	printf("===================\n\n\n");
 }

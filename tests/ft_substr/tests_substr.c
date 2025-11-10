@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   tests_substr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: simard <simard@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 14:55:31 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 14:42:26 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 19:48:47 by simard           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 #include "struct_test_substr.h"
 
-void	ft_tests_substr(void)
+t_test_result	ft_tests_substr(void)
 {
 	const t_test_case_substr	tests[] = {
 	{"Basic substring", "Hello, world!", 0, 5, "Hello", false},
@@ -35,6 +35,7 @@ void	ft_tests_substr(void)
 	char						*result;
 	char						*big;
 	int							i;
+	t_test_result				*test_result;
 
 	passed = 0;
 	i = 0;

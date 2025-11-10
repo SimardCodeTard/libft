@@ -6,60 +6,53 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:34:52 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 14:41:41 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 14:39:43 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 #include "struct_test_itoa.h"
 
-void	ft_tests_itoa(void)
+t_test_result	ft_do_test_itoa(void *p)
 {
-	const t_test_case_itoa	tests[] = {
-	{"Simple number", 69, "69"},
-	{"Simple negative number", -69, "-69"},
-	{"Zero", 0, "0"},
-	{"Int max", 2147483647, "2147483647"},
-	{"Int min", -2147483648, "-2147483648"},
-	{"Nine", 9, "9"},
-	{"Minus nine", -9, "-9"},
-	};
-	const int				total = sizeof(tests)
-		/ sizeof(t_test_case_itoa);
-	int						passed;
-	int						success;
-	char					*result;
-	int						i;
+	t_params_itoa	*params = (t_params_itoa *) p;
+	t_test_result	res;
+	char			*result;
 
-	passed = 0;
+	result = ft_itoa(params->n);
+	res.expected = params->expected;
+	res.desc = params->desc;
+	res.result = result;
+	res.success = !strcmp(result, params->expected);
+	return (res);
+}
+
+t_test_set_result	ft_tests_itoa(void)
+{
+	const t_test_case_itoa	test_cases[] = {
+	{ft_do_test_itoa, {"Simple number (funny)", 69, "69"}},
+	{ft_do_test_itoa, {"Simple negative number (funny)", -69, "-69"}},
+	{ft_do_test_itoa, {"Zero", 0, "0"}},
+	{ft_do_test_itoa, {"Int max", INT_MAX, "2147483647"}},
+	{ft_do_test_itoa, {"Int min", INT_MIN, "-2147483648"}},
+	{ft_do_test_itoa, {"Nine", 9, "9"}},
+	{ft_do_test_itoa, {"Minus nine", -9, "-9"}},
+	};
+	const int				total = sizeof(test_cases)
+		/ sizeof(t_test_case_itoa);
+	uint16_t				i;
+	t_test					*tests;
+	t_test_set_result		result;
+
+	tests= malloc(total * sizeof(t_test));
 	i = 0;
-	printf("===== ft_itoa tests =====\n\n");
 	while (i < total)
 	{
-		success = 0;
-		result = ft_itoa(tests[i].n);
-		if (TEST_STR(tests[i].expected, result))
-			success = 1;
-		if (success)
-		{
-			printf(GREEN "[%2d] %-80s -> Success!\n"
-				RESET, i + 1, tests[i].desc);
-			passed++;
-		}
-		else
-		{
-			if (!result)
-				result = "NULL";
-			printf(RED "[%2d] %-80s -> Failure! Got: \"%s\" expected : \"%s\"\n"
-				RESET, i + 1, tests[i].desc, result, tests[i].expected);
-		}
-		SAFE_FREE(result);
+		tests[i].f = test_cases[i].f;
+		tests[i].params = (void *) &test_cases[i].params;
 		i++;
 	}
-	printf("\n===== Summary =====\n");
-	if (passed == total)
-		printf(GREEN "%d/%d tests passed ✅\n" RESET, passed, total);
-	else
-		printf(RED "%d/%d tests passed ❌\n" RESET, passed, total);
-	printf("===================\n\n\n");
+	result = ft_run_tests("ft_itoa", tests, total);
+	free(tests);
+	return (result);
 }
