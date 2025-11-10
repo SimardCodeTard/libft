@@ -6,14 +6,14 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 14:55:31 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 20:18:03 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 14:42:26 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 #include "struct_test_substr.h"
 
-int	main(void)
+void	ft_tests_substr(void)
 {
 	const t_test_case_substr	tests[] = {
 	{"Basic substring", "Hello, world!", 0, 5, "Hello", false},
@@ -61,7 +61,7 @@ int	main(void)
 			success = 1;
 		if (success)
 		{
-			printf(GREEN "[%2d] %-25s -> Success!\n"
+			printf(GREEN "[%2d] %-80s -> Success!\n"
 				RESET, i + 1, tests[i].desc);
 			passed++;
 		}
@@ -69,7 +69,7 @@ int	main(void)
 		{
 			if (!result)
 				result = "NULL";
-			printf(RED "[%2d] %-25s -> Failure! Got: \"%s\" expected : \"%s\"\n"
+			printf(RED "[%2d] %-80s -> Failure! Got: \"%s\" expected : \"%s\"\n"
 				RESET, i + 1, tests[i].desc, result, tests[i].expected);
 		}
 		SAFE_FREE(result);
@@ -80,6 +80,5 @@ int	main(void)
 		printf(GREEN "%d/%d tests passed ✅\n" RESET, passed, total);
 	else
 		printf(RED "%d/%d tests passed ❌\n" RESET, passed, total);
-	printf("===================\n");
-	return (EXIT_SUCCESS);
+	printf("===================\n\n\n");
 }

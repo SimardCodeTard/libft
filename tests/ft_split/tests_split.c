@@ -6,14 +6,14 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 21:34:02 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 13:15:27 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 14:41:26 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 #include "struct_test_split.h"
 
-int	main(void)
+void	ft_tests_split(void)
 {
 	static const char		*expected_no_split[] = {"Hello, world!", NULL};
 	static const char		*expected_split_2_words[]
@@ -22,7 +22,6 @@ int	main(void)
 		= {"Hello", "world!", "Hi, mom!", NULL};
 	static const char		*expected_split_0_words[] = {NULL};
 	static const char		*expected_split_full_sep[] = {NULL};
-	static const char		*expected_split_bababooey[] = {"hello!", NULL};
 	const t_test_case_split	tests[] = {
 	{"No split", "Hello, world!", ';', expected_no_split},
 	{"Basic split", "Hello;world!", ';', expected_split_2_words},
@@ -39,7 +38,6 @@ int	main(void)
 	{"Split with empty string", "", ';', expected_split_0_words},
 	{"Split with NULL", NULL, ';', expected_split_0_words},
 	{"Split with only sep", ";;;;;;;;;;", ';', expected_split_full_sep},
-	{"Split with only sep", "hello!", ' ', expected_split_bababooey}
 	};
 	const int				total = sizeof(tests)
 		/ sizeof(t_test_case_split);
@@ -50,7 +48,7 @@ int	main(void)
 
 	passed = 0;
 	i = 0;
-	printf("===== ft_strjoin tests =====\n\n");
+	printf("===== ft_split tests =====\n\n");
 	while (i < total)
 	{
 		result = NULL;
@@ -60,7 +58,7 @@ int	main(void)
 			success = 1;
 		if (success)
 		{
-			printf(GREEN "[%d] %-75s -> Success!\n%s", i + 1, tests[i].desc,
+			printf(GREEN "[%2d] %-80s -> Success!\n%s", i + 1, tests[i].desc,
 				RESET);
 			passed++;
 		}
@@ -68,14 +66,14 @@ int	main(void)
 		{
 			if (!result)
 			{
-				printf(RED "[%d] %-75s -> Failure!%s\nFor s = \"%s\"\nGot:\nNULL\nExpected:\n",
+				printf(RED "[%2d] %-80s -> Failure!%s\nFor s = \"%s\"\nGot:\nNULL\nExpected:\n",
 					i + 1, tests[i].desc, RESET, tests[i].s);
 				print_strs((char **) tests[i].expected);
 				printf("\n");
 			}
 			else
 			{
-				printf(RED "[%d] %-75s -> Failure!%s\nFor s = \"%s\"\nGot:\n", i + 1,
+				printf(RED "[%2d] %-75s -> Failure!%s\nFor s = \"%s\"\nGot:\n", i + 1,
 					tests[i].desc, RESET, tests[i].s);
 				print_strs(result);
 				printf("\nExpected:\n");
@@ -91,6 +89,5 @@ int	main(void)
 		printf(GREEN "%d/%d tests passed ✅\n" RESET, passed, total);
 	else
 		printf(RED "%d/%d tests passed ❌\n" RESET, passed, total);
-	printf("===================\n");
-	return (EXIT_SUCCESS);
+	printf("===================\n\n\n");
 }

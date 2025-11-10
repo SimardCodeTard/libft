@@ -6,14 +6,14 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 16:03:18 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 20:16:31 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 14:41:56 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 #include "struct_test_strjoin.h"
 
-int	main(void)
+void	ft_tests_strjoin(void)
 {
 	const t_test_case_strjoin	tests[] = {
 	{"Basic join", "Hello,", " world!", "Hello, world!", false},
@@ -45,7 +45,7 @@ int	main(void)
 			success = 1;
 		if (success)
 		{
-			printf(GREEN "[%d] %-25s -> Success!\n" RESET, i + 1,
+			printf(GREEN "[%2d] %-80s -> Success!\n" RESET, i + 1,
 				tests[i].desc);
 			passed++;
 		}
@@ -53,7 +53,7 @@ int	main(void)
 		{
 			if (!result)
 				result = "NULL";
-			printf(RED "[%d] %-25s -> Failure! Got: \"%s\" expected : \"%s\"\n"
+			printf(RED "[%2d] %-80s -> Failure! Got: \"%s\" expected : \"%s\"\n"
 				RESET, i + 1, tests[i].desc, result, tests[i].expected);
 		}
 		SAFE_FREE(result);
@@ -64,6 +64,5 @@ int	main(void)
 		printf(GREEN "%d/%d tests passed ✅\n" RESET, passed, total);
 	else
 		printf(RED "%d/%d tests passed ❌\n" RESET, passed, total);
-	printf("===================\n");
-	return (EXIT_SUCCESS);
+	printf("===================\n\n\n");
 }

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 15:30:38 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 11:17:06 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 14:33:26 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@
 # include <stdbool.h>
 # include <ctype.h>
 # include "../libft.h"
+
+void	ft_tests_itoa(void);
+
+void	ft_tests_split(void);
+
+void	ft_tests_strjoin(void);
+
+void	ft_tests_strtrim(void);
+
+void	ft_tests_substr(void);
 
 char	*convert_string(char *s);
 

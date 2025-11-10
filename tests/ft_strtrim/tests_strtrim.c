@@ -6,14 +6,14 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 17:48:40 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/09 20:46:30 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/10 14:42:16 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 #include "struct_test_strtrim.h"
 
-int	main(void)
+void	ft_tests_strtrim(void)
 {
 	const t_test_case_strtrim	tests[] = {
 	{"Trim '\\n' at the end", "Hello, world!\n", "\n", "Hello, world!"},
@@ -48,18 +48,18 @@ int	main(void)
 		result = ft_strtrim(tests[i].s1, tests[i].set);
 		if (TEST_STR(tests[i].expected, result))
 			success = 1;
-		printf("Test [%2d] %-40s -> ", i + 1, tests[i].desc);
 		if (success)
 		{
-			printf(GREEN "Success!\n" RESET);
+			printf(GREEN "[%2d] %-80s -> Success!\n"
+				RESET, i + 1, tests[i].desc);
 			passed++;
 		}
 		else
 		{
 			if (!result)
 				result = "NULL";
-			printf(RED "Failure! Got: \"%s\" expected : \"%s\"\n"
-				RESET, convert_string(result), tests[i].expected);
+			printf(RED "[%2d] %-80s -> Failure! Got: \"%s\" expected : \"%s\"\n"
+				RESET, i + 1, tests[i].desc, result, tests[i].expected);
 		}
 		SAFE_FREE(result);
 		i++;
@@ -69,6 +69,5 @@ int	main(void)
 		printf(GREEN "%d/%d tests passed ✅\n" RESET, passed, total);
 	else
 		printf(RED "%d/%d tests passed ❌\n" RESET, passed, total);
-	printf("===================\n");
-	return (EXIT_SUCCESS);
+	printf("===================\n\n\n");
 }
