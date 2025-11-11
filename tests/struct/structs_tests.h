@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   structs_tests.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 19:21:13 by simard            #+#    #+#             */
-/*   Updated: 2025/11/11 16:23:45 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:06:06 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_RESULT_H
-# define TEST_RESULT_H
+#ifndef STRUCTS_TESTS_H
+# define STRUCTS_TESTS_H
 # include "../tests.h"
 
 typedef struct s_test_result
@@ -35,6 +35,6 @@ typedef struct s_test
 	void			*params;
 }	t_test;
 
-typedef t_test_set_result (*t_test_set)(void);
+typedef t_test_set_result	(*t_test_set)(void);
 
 #endif

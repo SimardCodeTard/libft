@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tests.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simard <simard@student.42.fr>              +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 15:30:38 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 21:28:20 by simard           ###   ########.fr       */
+/*   Updated: 2025/11/11 17:09:06 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <string.h>
 # include <stdbool.h>
 # include <ctype.h>
-# include "struct/tests.h"
+# include "struct/structs_tests.h"
 # include "../libft.h"
 
 t_test_set_result	ft_tests_itoa(void);
@@ -47,6 +47,6 @@ char				*strs_tostring(const char **strs);
 void				free_arr(void **arr, size_t size);
 
 t_test_set_result	ft_run_tests(const char *name, t_test *tests,
-	unsigned int n);
+						unsigned int n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 14:55:31 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 16:58:04 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:07:05 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 
 t_test_result	ft_do_test_substr(void *p)
 {
-	t_params_substr	*params = (t_params_substr *)p;
-	t_test_result	result;
+	const t_params_substr	*params = (t_params_substr *)p;
+	t_test_result			result;
 
 	result.desc = params->desc;
 	result.expected = params->expected;
 	result.result = ft_substr(params->src, params->start, params->len);
-	result.success = (result.result == NULL && result.expected == NULL) || !strcmp(result.expected, result.result);
+	result.success = (result.result == NULL && result.expected == NULL)
+		|| !strcmp(result.expected, result.result);
 	return (result);
 }
 
@@ -30,7 +31,8 @@ t_test_set_result	ft_tests_substr(void)
 	const t_test_case_substr	test_cases[] = {
 	{ft_do_test_substr, {"Basic substring", "Hello, world!", 0, 5, "Hello",}},
 	{ft_do_test_substr, {"Middle substring", "Hello, world!", 7, 5, "world",}},
-	{ft_do_test_substr, {"Length exceeds source", "Hello, world!", 10, 50, "ld!"}},
+	{ft_do_test_substr, {"Length exceeds source", "Hello, world!", 10, 50,
+		"ld!"}},
 	{ft_do_test_substr, {"Start beyond length", "Hello, world!", 100, 5, ""}},
 	{ft_do_test_substr, {"Zero length", "Hello, world!", 5, 0, ""}},
 	{ft_do_test_substr, {"Empty string", "", 0, 5, ""}},

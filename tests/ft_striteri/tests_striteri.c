@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 15:18:51 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 16:31:30 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:04:33 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,20 @@ t_test_set_result	ft_tests_striteri(void)
 {
 	const t_test_case_striteri	test_cases[] = {
 	{ft_do_test_striter, {"To upper", memcpy(calloc(27, sizeof(char)),
-		"abcdefghijklmnopqrstuvwxyz", 26), f_toupper_iteri,
+			"abcdefghijklmnopqrstuvwxyz", 26), f_toupper_iteri,
 		"ABCDEFGHIJKLMNOPQRSTUVWXYZ"}},
 	{ft_do_test_striter, {"To lower", memcpy(calloc(27, sizeof(char)),
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26), f_tolower_iteri,
+			"ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26), f_tolower_iteri,
 		"abcdefghijklmnopqrstuvwxyz"}},
 	{ft_do_test_striter, {"Add index", memcpy(calloc(27, sizeof(char)),
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26), f_addindex_iteri,
+			"ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26), f_addindex_iteri,
 		"ACEGIKMOQSUWY[]_acegikmoqs"}},
 	};
 	const int					total = sizeof(test_cases)
 		/sizeof(t_test_case_striteri);
-	uint16_t				i;
-	t_test					*tests;
-	t_test_set_result		result;
+	uint16_t					i;
+	t_test						*tests;
+	t_test_set_result			result;
 
 	tests = malloc(total * sizeof(t_test));
 	i = 0;

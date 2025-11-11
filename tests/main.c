@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:33:35 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 16:52:33 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:08:23 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,13 @@ int	main(void)
 		return (EXIT_SUCCESS);
 	}
 	if (failed_tests_count)
-		printf(KRED "❌ %s%d%s / %s%d%s tests failed across %s%d%s files!\n" KNRM,
-			KYEL, failed_tests_count, KRED, KYEL, failed_tests_count + successful_tests_count,
-			KRED, KYEL, failed_sets_count + successful_sets_count, KRED);
+		printf(KRED "❌ %s%d%s / %s%d%s tests failed across %s%d%s files!\n"
+			KNRM, KYEL, failed_tests_count, KRED, KYEL, failed_tests_count
+			+ successful_tests_count, KRED, KYEL, failed_sets_count
+			+ successful_sets_count, KRED);
 	else
 		printf(KGRN"✅ Successfuly ran %s%d%s tests across %s%d%s files!\n" KNRM,
-			KYEL,successful_tests_count, KGRN, KYEL, successful_sets_count,
+			KYEL, successful_tests_count, KGRN, KYEL, successful_sets_count,
 			KGRN);
 	if (successful_sets_count)
 	{

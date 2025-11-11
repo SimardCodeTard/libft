@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 19:25:38 by simard            #+#    #+#             */
-/*   Updated: 2025/11/11 16:32:01 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:00:42 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ static t_test_result	ft_run_test(t_test test,
 	}
 	else
 	{
-		printf(KRED "[%2d] %s%-70s %sFailure !%s\nExpected: %s%s%s, Got: %s%s\n" KNRM,
-			n, KNRM, res.desc, KRED, KNRM, KYEL, res.expected, KNRM, KYEL, res.result);
+		printf(KRED
+			"[%2d] %s%-70s %sFailure !%s\nExpected: %s%s%s, Got: %s%s\n"
+			KNRM, n, KNRM, res.desc, KRED, KNRM, KYEL, res.expected, KNRM,
+			KYEL, res.result);
 	}
 	return (res);
 }
@@ -38,7 +40,8 @@ t_test_set_result	ft_run_tests(const char *name,
 
 	result.success_count = 0;
 	result.failure_count = 0;
-	printf("\n===== Running %s%d%s tests accross for function %s\"%s\"%s =====\n",
+	printf(
+		"\n===== Running %s%d%s tests accross for function %s\"%s\"%s =====\n",
 		KYEL, n, KNRM, KBLU, name, KNRM);
 	i = 0;
 	while (i < n)

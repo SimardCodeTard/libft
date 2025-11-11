@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:34:52 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 14:39:43 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:59:35 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_test_set_result	ft_tests_itoa(void)
 	t_test					*tests;
 	t_test_set_result		result;
 
-	tests= malloc(total * sizeof(t_test));
+	tests = malloc(total * sizeof(t_test));
 	i = 0;
 	while (i < total)
 	{

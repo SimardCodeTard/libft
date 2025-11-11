@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 21:34:02 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 14:39:50 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:03:31 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 t_test_result	ft_do_test_split(void *p)
 {
-	t_params_split	*params = (t_params_split *) p;
-	t_test_result	res;
-	char		**result;
+	const t_params_split	*params = (t_params_split *) p;
+	t_test_result			res;
+	char					**result;
 
 	result = ft_split(params->s, params->c);
 	res.expected = strs_tostring(params->expected);
@@ -51,7 +51,8 @@ t_test_set_result	ft_tests_split(void)
 		"Split with multiple surrounding separators and multiple words",
 		";;;Hello;world!;;;", ';', expected_split_2_words}},
 	{ft_do_test_split, {
-		"Split with multiple surrounding separators and multiple words (uneven)",
+		"Split with multiple surrounding separators and multiple words\
+(uneven)",
 		";;;Hello;world!;Hi, mom!;;", ';', expected_split_3_words}},
 	{ft_do_test_split, {"Split with empty string", "", ';',
 		expected_split_0_words}},
@@ -65,7 +66,7 @@ t_test_set_result	ft_tests_split(void)
 	t_test					*tests;
 	t_test_set_result		result;
 
-	tests= malloc(total * sizeof(t_test));
+	tests = malloc(total * sizeof(t_test));
 	i = 0;
 	while (i < total)
 	{
