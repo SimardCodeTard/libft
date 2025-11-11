@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_test_striteri.h                             :+:      :+:    :+:   */
+/*   structs_tests.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 15:18:11 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 16:11:04 by smenard          ###   ########.fr       */
+/*   Created: 2025/11/10 19:21:13 by simard            #+#    #+#             */
+/*   Updated: 2025/11/11 17:06:06 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_TEST_STRITERI_H
-# define STRUCT_TEST_STRITERI_H
+#ifndef STRUCTS_TESTS_H
+# define STRUCTS_TESTS_H
+# include "../tests.h"
 
-typedef struct s_params_striteri
+typedef struct s_test_result
 {
 	char	*desc;
-	char	*s;
-	void	(*f)(unsigned int, char*);
 	char	*expected;
-}	t_params_striteri;
+	char	*result;
+	bool	success;
+}	t_test_result;
 
-typedef struct s_test_case_striteri
+typedef struct s_test_set_result
 {
-	t_test_result		(*f)(void *);
-	t_params_striteri	params;
-}	t_test_case_striteri;
+	unsigned int	success_count;
+	unsigned int	failure_count;
+	const char		*name;
+}	t_test_set_result;
+
+typedef struct s_test
+{
+	t_test_result	(*f)(void *);
+	void			*params;
+}	t_test;
+
+typedef t_test_set_result	(*t_test_set)(void);
 
 #endif

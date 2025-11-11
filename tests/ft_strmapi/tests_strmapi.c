@@ -6,12 +6,24 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 15:03:50 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 15:12:43 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:30:54 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 #include "struct_test_strmapi.h"
+
+t_test_result	ft_do_test_strmapi(void *p)
+{
+	const t_params_strmapi	*params = (t_params_strmapi	*) p;
+	t_test_result			test_result;
+
+	test_result.desc = params->desc;
+	test_result.result = ft_strmapi(params->s, params->f);
+	test_result.expected = params->expected;
+	test_result.success = !strcmp(params->expected, test_result.result);
+	return (test_result);
+}
 
 char	f_toupper(unsigned int i, char c)
 {
@@ -30,53 +42,32 @@ char	f_addindex(unsigned int i, char c)
 	return (c + i);
 }
 
-void	ft_tests_strmapi(void)
+t_test_set_result	ft_tests_strmapi(void)
 {
-	const t_test_case_strmapi	tests[] = {
-	{"To upper", "abcdefghijklmnopqrstuvwxyz", f_toupper,
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZ"},
-	{"To lower", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", f_tolower,
-		"abcdefghijklmnopqrstuvwxyz"},
-	{"Add index", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", f_addindex,
-		"ACEGIKMOQSUWY[]_acegikmoqs"},
+	const t_test_case_strmapi	test_cases[] = {
+	{ft_do_test_strmapi, {"To upper", "abcdefghijklmnopqrstuvwxyz", f_toupper,
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZ"}},
+	{ft_do_test_strmapi, {"To lower", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", f_tolower,
+		"abcdefghijklmnopqrstuvwxyz"}},
+	{ft_do_test_strmapi, {"Add index", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", f_addindex,
+		"ACEGIKMOQSUWY[]_acegikmoqs"}},
 	};
-	const int					total = sizeof(tests)
+	const int					total = sizeof(test_cases)
 		/sizeof(t_test_case_strmapi);
-	int							passed;
-	int							success;
-	char						*result;
-	int							i;
+	uint16_t					i;
+	t_test						*tests;
+	t_test_set_result			result;
 
-	passed = 0;
+	tests = malloc(total * sizeof(t_test));
 	i = 0;
-	printf("===== ft_strmapi tests =====\n\n");
 	while (i < total)
 	{
-		result = NULL;
-		success = 0;
-		result = ft_strmapi(tests[i].s, tests[i].f);
-		if (TEST_STR(tests[i].expected, result))
-			success = 1;
-		if (success)
-		{
-			printf(GREEN "[%2d] %-80s -> Success!\n" RESET, i + 1,
-				tests[i].desc);
-			passed++;
-		}
-		else
-		{
-			if (!result)
-				result = "NULL";
-			printf(RED "[%2d] %-80s -> Failure! Got: \"%s\" expected : \"%s\"\n"
-				RESET, i + 1, tests[i].desc, result, tests[i].expected);
-		}
-		SAFE_FREE(result);
+		tests[i].f = test_cases[i].f;
+		tests[i].params = (void *) &test_cases[i].params;
 		i++;
 	}
-	printf("\n===== Summary =====\n");
-	if (passed == total)
-		printf(GREEN "%d/%d tests passed ✅\n" RESET, passed, total);
-	else
-		printf(RED "%d/%d tests passed ❌\n" RESET, passed, total);
-	printf("===================\n\n\n");
+	result = ft_run_tests("ft_strmapi", tests, total);
+	i = 0;
+	free(tests);
+	return (result);
 }

@@ -44,7 +44,3 @@
 - [ ] lstclear
 - [ ] lstiter
 - [ ] lstmap
-
-## Tests
-Use the following command to compile and execute tests :
-`cc -Wall -Wextra -Werror **/*.c && ./a.out`

@@ -6,63 +6,52 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 16:03:18 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 14:41:56 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:22:33 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 #include "struct_test_strjoin.h"
 
-void	ft_tests_strjoin(void)
+t_test_result	ft_do_test_strjoin(void *p)
 {
-	const t_test_case_strjoin	tests[] = {
-	{"Basic join", "Hello,", " world!", "Hello, world!", false},
-	{"Empty s1", "", " world!", " world!", false},
-	{"Empty s2", "Hello,", "", "Hello,", false},
-	{"Empty s1 and s2", "", "", "", false},
-	{"NULL s1", NULL, " world!", " world!", false},
-	{"NULL s2", "Hello,", NULL, "Hello,", false},
-	{"Both NULL", NULL, NULL, "", false},
-	};
-	const int					total = sizeof(tests)
-		/sizeof(t_test_case_strjoin);
-	int							passed;
-	int							success;
-	char						*result;
-	int							i;
+	const t_params_strjoin	*params = (t_params_strjoin *)p;
+	t_test_result			test_result;
 
-	passed = 0;
+	test_result.desc = params->desc;
+	test_result.result = ft_strjoin(params->s1, params->s2);
+	test_result.expected = params->expected;
+	test_result.success = !strcmp(params->expected, test_result.result);
+	return (test_result);
+}
+
+t_test_set_result	ft_tests_strjoin(void)
+{
+	const t_test_case_strjoin	test_cases[] = {
+	{ft_do_test_strjoin, {"Basic join", "Hello,", " world!", "Hello, world!"}},
+	{ft_do_test_strjoin, {"Empty s1", "", " world!", " world!"}},
+	{ft_do_test_strjoin, {"Empty s2", "Hello,", "", "Hello,"}},
+	{ft_do_test_strjoin, {"Empty s1 and s2", "", "", ""}},
+	{ft_do_test_strjoin, {"NULL s1", NULL, " world!", " world!"}},
+	{ft_do_test_strjoin, {"NULL s2", "Hello,", NULL, "Hello,"}},
+	{ft_do_test_strjoin, {"Both NULL", NULL, NULL, ""}},
+	};
+	const int					total = sizeof(test_cases)
+		/sizeof(t_test_case_strjoin);
+	uint16_t					i;
+	t_test						*tests;
+	t_test_set_result			result;
+
+	tests = malloc(total * sizeof(t_test));
 	i = 0;
-	printf("===== ft_strjoin tests =====\n\n");
 	while (i < total)
 	{
-		result = NULL;
-		success = 0;
-		result = ft_strjoin(tests[i].s1, tests[i].s2);
-		if (tests[i].allow_null && result == NULL)
-			success = 1;
-		else if (TEST_STR(tests[i].expected, result))
-			success = 1;
-		if (success)
-		{
-			printf(GREEN "[%2d] %-80s -> Success!\n" RESET, i + 1,
-				tests[i].desc);
-			passed++;
-		}
-		else
-		{
-			if (!result)
-				result = "NULL";
-			printf(RED "[%2d] %-80s -> Failure! Got: \"%s\" expected : \"%s\"\n"
-				RESET, i + 1, tests[i].desc, result, tests[i].expected);
-		}
-		SAFE_FREE(result);
+		tests[i].f = test_cases[i].f;
+		tests[i].params = (void *) &test_cases[i].params;
 		i++;
 	}
-	printf("\n===== Summary =====\n");
-	if (passed == total)
-		printf(GREEN "%d/%d tests passed ✅\n" RESET, passed, total);
-	else
-		printf(RED "%d/%d tests passed ❌\n" RESET, passed, total);
-	printf("===================\n\n\n");
+	result = ft_run_tests("ft_strjoin", tests, total);
+	i = 0;
+	free(tests);
+	return (result);
 }

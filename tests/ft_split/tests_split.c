@@ -6,14 +6,28 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 21:34:02 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 14:41:26 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:03:31 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 #include "struct_test_split.h"
 
-void	ft_tests_split(void)
+t_test_result	ft_do_test_split(void *p)
+{
+	const t_params_split	*params = (t_params_split *) p;
+	t_test_result			res;
+	char					**result;
+
+	result = ft_split(params->s, params->c);
+	res.expected = strs_tostring(params->expected);
+	res.desc = (char *) params->desc;
+	res.result = strs_tostring((const char **) result);
+	res.success = !strscmp((const char **) result, params->expected);
+	return (res);
+}
+
+t_test_set_result	ft_tests_split(void)
 {
 	static const char		*expected_no_split[] = {"Hello, world!", NULL};
 	static const char		*expected_split_2_words[]
@@ -22,72 +36,45 @@ void	ft_tests_split(void)
 		= {"Hello", "world!", "Hi, mom!", NULL};
 	static const char		*expected_split_0_words[] = {NULL};
 	static const char		*expected_split_full_sep[] = {NULL};
-	const t_test_case_split	tests[] = {
-	{"No split", "Hello, world!", ';', expected_no_split},
-	{"Basic split", "Hello;world!", ';', expected_split_2_words},
-	{"Split with surrounding separators", ";Hello, world!;", ';',
-		expected_no_split},
-	{"Split with surrounding separators and multiple words", ";Hello;world!;",
-		';', expected_split_2_words},
-	{"Split with multiple surrounding separators and multiple words",
-		";;;Hello;world!;;;", ';', expected_split_2_words},
-	{"Split with multiple surrounding separators and multiple words",
-		";;;Hello;world!;;;", ';', expected_split_2_words},
-	{"Split with multiple surrounding separators and multiple words (uneven)",
-		";;;Hello;world!;Hi, mom!;;", ';', expected_split_3_words},
-	{"Split with empty string", "", ';', expected_split_0_words},
-	{"Split with NULL", NULL, ';', expected_split_0_words},
-	{"Split with only sep", ";;;;;;;;;;", ';', expected_split_full_sep},
+	const t_test_case_split	test_cases[] = {
+	{ft_do_test_split, {"No split", "Hello, world!", ';', expected_no_split}},
+	{ft_do_test_split, {"Basic split", "Hello;world!", ';',
+		expected_split_2_words}},
+	{ft_do_test_split, {"Split with surrounding separators", ";Hello, world!;",
+		';', expected_no_split}},
+	{ft_do_test_split, {"Split with surrounding separators and multiple words",
+		";Hello;world!;", ';', expected_split_2_words}},
+	{ft_do_test_split, {
+		"Split with multiple surrounding separators and multiple words",
+		";;;Hello;world!;;;", ';', expected_split_2_words}},
+	{ft_do_test_split, {
+		"Split with multiple surrounding separators and multiple words",
+		";;;Hello;world!;;;", ';', expected_split_2_words}},
+	{ft_do_test_split, {
+		"Split with multiple surrounding separators and multiple words\
+(uneven)",
+		";;;Hello;world!;Hi, mom!;;", ';', expected_split_3_words}},
+	{ft_do_test_split, {"Split with empty string", "", ';',
+		expected_split_0_words}},
+	{ft_do_test_split, {"Split with NULL", NULL, ';', expected_split_0_words}},
+	{ft_do_test_split, {"Split with only sep", ";;;;;;;;;;", ';',
+		expected_split_full_sep}},
 	};
-	const int				total = sizeof(tests)
+	const int				total = sizeof(test_cases)
 		/ sizeof(t_test_case_split);
-	int						passed;
-	int						success;
-	char					**result;
-	int						i;
+	uint16_t				i;
+	t_test					*tests;
+	t_test_set_result		result;
 
-	passed = 0;
+	tests = malloc(total * sizeof(t_test));
 	i = 0;
-	printf("===== ft_split tests =====\n\n");
 	while (i < total)
 	{
-		result = NULL;
-		success = 0;
-		result = ft_split(tests[i].s, tests[i].c);
-		if (!strscmp(tests[i].expected, (const char **) result))
-			success = 1;
-		if (success)
-		{
-			printf(GREEN "[%2d] %-80s -> Success!\n%s", i + 1, tests[i].desc,
-				RESET);
-			passed++;
-		}
-		else
-		{
-			if (!result)
-			{
-				printf(RED "[%2d] %-80s -> Failure!%s\nFor s = \"%s\"\nGot:\nNULL\nExpected:\n",
-					i + 1, tests[i].desc, RESET, tests[i].s);
-				print_strs((char **) tests[i].expected);
-				printf("\n");
-			}
-			else
-			{
-				printf(RED "[%2d] %-75s -> Failure!%s\nFor s = \"%s\"\nGot:\n", i + 1,
-					tests[i].desc, RESET, tests[i].s);
-				print_strs(result);
-				printf("\nExpected:\n");
-				print_strs((char **) tests[i].expected);
-				printf("\n" RESET);
-			}
-		}
-		free_arr((void **)result, sizeof(char));
+		tests[i].f = test_cases[i].f;
+		tests[i].params = (void *) &test_cases[i].params;
 		i++;
 	}
-	printf("\n===== Summary =====\n");
-	if (passed == total)
-		printf(GREEN "%d/%d tests passed ✅\n" RESET, passed, total);
-	else
-		printf(RED "%d/%d tests passed ❌\n" RESET, passed, total);
-	printf("===================\n\n\n");
+	result = ft_run_tests("ft_split", tests, total);
+	free(tests);
+	return (result);
 }

@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_strs.c                                       :+:      :+:    :+:   */
+/*   strs_tostring.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 11:03:07 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 12:47:10 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 13:47:31 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../tests.h"
 
-void	print_strs(char **strs)
+char	*strs_tostring(const char **strs)
 {
 	size_t	i;
+	char	*to_string;
+	char	*prev_to_string;
 
+	to_string = NULL;
 	i = 0;
-	printf("{ ");
+	to_string = ft_strjoin(to_string, "{ ");
 	while (strs[i])
 	{
-		printf("\"%s\"", strs[i]);
-		printf(", ");
+		prev_to_string = to_string;
+		to_string = ft_strjoin(to_string, "\"");
+		free(prev_to_string);
+		prev_to_string = to_string;
+		to_string = ft_strjoin(to_string, strs[i]);
+		free(prev_to_string);
+		prev_to_string = to_string;
+		to_string = ft_strjoin(to_string, ", ");
+		free(prev_to_string);
 		i++;
 	}
-	printf("NULL }");
+	prev_to_string = to_string;
+	to_string = ft_strjoin(to_string, "NULL }");
+	free(prev_to_string);
+	return (to_string);
 }
