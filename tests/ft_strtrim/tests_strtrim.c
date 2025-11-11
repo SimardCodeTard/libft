@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 17:48:40 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 16:44:39 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:51:17 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_test_set_result	ft_tests_strtrim(void)
 		tests[i].params = (void *) &test_cases[i].params;
 		i++;
 	}
-	result = ft_run_tests("ft_strmapi", tests, total);
+	result = ft_run_tests("ft_strtrim", tests, total);
 	i = 0;
 	free(tests);
 	return (result);

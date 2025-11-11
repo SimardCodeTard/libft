@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:33:35 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 16:43:47 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:52:33 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(void)
 		ft_tests_strjoin,
 		ft_tests_strmapi,
 		ft_tests_strtrim,
+		ft_tests_substr,
 	};
 	const size_t		total = sizeof(sets) / sizeof(t_test_set);
 	t_test_set_result	*results = calloc(total, sizeof(t_test_set_result));
