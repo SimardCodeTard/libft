@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 19:21:13 by simard            #+#    #+#             */
-/*   Updated: 2025/11/11 14:22:10 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:01:32 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_test_set_result
 typedef struct s_test
 {
 	t_test_result	(*f)(void *);
-	void *params;
+	void			*params;
 }	t_test;
 
 

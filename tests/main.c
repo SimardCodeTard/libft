@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:33:35 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 14:39:13 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 15:43:52 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(void)
 	{
 		ft_tests_itoa,
 		ft_tests_split,
+		ft_tests_striteri,
 	};
 	const size_t		total = sizeof(sets) / sizeof(t_test_set);
 	t_test_set_result	*results = calloc(total, sizeof(t_test_set_result));
