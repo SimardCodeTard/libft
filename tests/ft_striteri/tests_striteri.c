@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 15:18:51 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 16:03:53 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:31:30 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ t_test_result	ft_do_test_striter(void *p)
 {
 	const t_params_striteri	*params = (t_params_striteri *) p;
 	t_test_result			test_res;
-
-	printf("desc: %s s:%s, expected: %s\n", params->desc, params->s, params->expected);
 
 	ft_striteri(params->s, params->f);
 	test_res.desc = params->desc;
@@ -48,11 +46,14 @@ void	f_addindex_iteri(unsigned int i, char *c)
 t_test_set_result	ft_tests_striteri(void)
 {
 	const t_test_case_striteri	test_cases[] = {
-	{ft_do_test_striter, {"To upper", memcpy(calloc(27, sizeof(char)), "abcdefghijklmnopqrstuvwxyz", 26), f_toupper_iteri,
+	{ft_do_test_striter, {"To upper", memcpy(calloc(27, sizeof(char)),
+		"abcdefghijklmnopqrstuvwxyz", 26), f_toupper_iteri,
 		"ABCDEFGHIJKLMNOPQRSTUVWXYZ"}},
-	{ft_do_test_striter, {"To lower", memcpy(calloc(27, sizeof(char)), "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26), f_tolower_iteri,
+	{ft_do_test_striter, {"To lower", memcpy(calloc(27, sizeof(char)),
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26), f_tolower_iteri,
 		"abcdefghijklmnopqrstuvwxyz"}},
-	{ft_do_test_striter, {"Add index", memcpy(calloc(27, sizeof(char)), "ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26), f_addindex_iteri,
+	{ft_do_test_striter, {"Add index", memcpy(calloc(27, sizeof(char)),
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZ", 26), f_addindex_iteri,
 		"ACEGIKMOQSUWY[]_acegikmoqs"}},
 	};
 	const int					total = sizeof(test_cases)
