@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:33:35 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 17:08:23 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 17:16:53 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,7 @@ int	main(void)
 	free(results);
 	free(failed_sets);
 	free(successful_sets);
+	if (failed_sets)
+		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
