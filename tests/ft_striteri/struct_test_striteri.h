@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 15:18:11 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 15:51:29 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:11:04 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_params_striteri
 
 typedef struct s_test_case_striteri
 {
-	t_test_result	(*f)(void *);
+	t_test_result		(*f)(void *);
 	t_params_striteri	params;
 }	t_test_case_striteri;
 

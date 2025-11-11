@@ -6,21 +6,19 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 14:33:35 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 15:43:52 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/11 16:24:20 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 
-typedef t_test_set_result (*t_test_set)(void);
-
 int	main(void)
 {
-	const t_test_set	sets[] =
-	{
+	const t_test_set	sets[] = {
 		ft_tests_itoa,
 		ft_tests_split,
 		ft_tests_striteri,
+		ft_tests_strjoin,
 	};
 	const size_t		total = sizeof(sets) / sizeof(t_test_set);
 	t_test_set_result	*results = calloc(total, sizeof(t_test_set_result));
@@ -71,8 +69,8 @@ int	main(void)
 			KRED, KYEL, failed_sets_count + successful_sets_count, KRED);
 	else
 		printf(KGRN"✅ Successfuly ran %s%d%s tests across %s%d%s files!\n" KNRM,
-			KYEL,successful_tests_count, KGRN, KYEL, successful_sets_count, KGRN);
-
+			KYEL,successful_tests_count, KGRN, KYEL, successful_sets_count,
+			KGRN);
 	if (successful_sets_count)
 	{
 		printf(KGRN "Passed sets :\n");
@@ -80,7 +78,7 @@ int	main(void)
 		while (i < successful_sets_count)
 		{
 			printf("%s", successful_sets[i]);
-			if (i <successful_sets_count - 1)
+			if (i < successful_sets_count - 1)
 				printf(", ");
 			else
 				printf("\n");
