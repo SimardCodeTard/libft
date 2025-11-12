@@ -35,12 +35,12 @@
 - [x] putendl_fd
 - [x] putnbr_fd
 ## Bonus part
-- [x] lstnew
-- [ ] lstadd_front
-- [ ] lstsize
-- [ ] lstlast
-- [ ] lstadd_back
-- [ ] lstdel_one
-- [ ] lstclear
-- [ ] lstiter
-- [ ] lstmap
+- [x] lstnew_bonus
+- [ ] lstadd_front_bonus
+- [ ] lstsize_bonus
+- [ ] lstlast_bonus
+- [ ] lstadd_back_bonus
+- [ ] lstdel_one_bonus
+- [ ] lstclear_bonus
+- [ ] lstiter_bonus
+- [ ] lstmap_bonus
