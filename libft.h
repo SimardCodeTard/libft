@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:07:56 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 13:45:41 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 13:53:49 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,7 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 
 void	ft_lstadd_back(t_list **lst, t_list *new);
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
 #endif
