@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 15:30:38 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/11 18:24:35 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 17:55:12 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ t_test_set_result	ft_tests_striteri(void);
 
 t_test_set_result	ft_tests_lstnew(void);
 
+t_test_set_result	ft_tests_lstmap(void);
+
 char				*convert_string(char *s);
 
 int					strscmp(const char **ss1, const char **ss2);
@@ -56,5 +58,9 @@ char	*lst_tostring_char(t_list *lst);
 char	*lst_tostring_str(t_list *lst);
 
 char	*lst_tostring_int(t_list *lst);
+
+bool	ft_lsteq(t_list *l1, t_list *l2);
+
+bool	ft_lst_has_cycle(t_list *lst);
 
 #endif
