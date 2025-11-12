@@ -40,6 +40,7 @@ SRC_FILES = ft_isascii.c \
 		ft_lstnew_bonus.c \
 		ft_lstadd_front_bonus.c \
 		ft_lstsize_bonus.c \
+		ft_lstlast_bonus.c \
 
 SRC_DIR = ./
 
