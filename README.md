@@ -38,8 +38,8 @@
 - [x] lstnew_bonus
 - [x] lstadd_front_bonus
 - [x] lstsize_bonus
-- [ ] lstlast_bonus
-- [ ] lstadd_back_bonus
+- [x] lstlast_bonus
+- [x] lstadd_back_bonus
 - [ ] lstdel_one_bonus
 - [ ] lstclear_bonus
 - [ ] lstiter_bonus
