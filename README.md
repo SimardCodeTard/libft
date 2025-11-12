@@ -37,7 +37,7 @@
 ## Bonus part
 - [x] lstnew_bonus
 - [x] lstadd_front_bonus
-- [ ] lstsize_bonus
+- [x] lstsize_bonus
 - [ ] lstlast_bonus
 - [ ] lstadd_back_bonus
 - [ ] lstdel_one_bonus
