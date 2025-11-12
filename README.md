@@ -42,5 +42,5 @@
 - [x] lstadd_back_bonus
 - [x] lstdel_one_bonus
 - [x] lstclear_bonus
-- [ ] lstiter_bonus
+- [x] lstiter_bonus
 - [ ] lstmap_bonus
