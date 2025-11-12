@@ -36,7 +36,7 @@
 - [x] putnbr_fd
 ## Bonus part
 - [x] lstnew_bonus
-- [ ] lstadd_front_bonus
+- [x] lstadd_front_bonus
 - [ ] lstsize_bonus
 - [ ] lstlast_bonus
 - [ ] lstadd_back_bonus
