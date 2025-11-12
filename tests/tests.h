@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 15:30:38 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 17:55:12 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 19:59:59 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ t_test_set_result	ft_run_tests(const char *name, t_test *tests,
 char	*lst_tostring_char(t_list *lst);
 
 char	*lst_tostring_str(t_list *lst);
+
+char	*lst_tostring_str_cyclic(t_list *lst);
 
 char	*lst_tostring_int(t_list *lst);
 

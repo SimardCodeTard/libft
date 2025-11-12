@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 17:56:39 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 10:39:47 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 19:44:34 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ t_test_result	ft_do_test_lstnew(void *p)
 	if (params->content == NULL)
 		test_result.success = result->content == params->expected;
 	else
-		test_result.success = !memcmp(params->expected, result->content, sizeof(&result->content));
+		test_result.success = !memcmp(params->expected, result->content,
+			sizeof(&result->content));
 	test_result.success &= !result->next;
 	return (test_result);
 }
@@ -46,9 +47,12 @@ t_test_set_result	ft_tests_lstnew(void)
 	char						*funny_string = "69";
 	char						c = 'p';
 	const t_test_case_lstnew	test_cases[] = {
-		{ft_do_test_lstnew, {"Simple number (funny)", &funny, &funny, FT_CTYPE_INT}},
-		{ft_do_test_lstnew, {"Simple number (funny) (negative)",&negative_funny, &negative_funny, FT_CTYPE_INT}},
-		{ft_do_test_lstnew, {"Simple string (hillarious)", &funny_string, &funny_string, FT_CTYPE_INT}},
+		{ft_do_test_lstnew, {"Simple number (funny)", &funny, &funny,
+			FT_CTYPE_INT}},
+		{ft_do_test_lstnew, {"Simple number (funny) (negative)",&negative_funny,
+			&negative_funny, FT_CTYPE_INT}},
+		{ft_do_test_lstnew, {"Simple string (hillarious)", &funny_string,
+			&funny_string, FT_CTYPE_INT}},
 		{ft_do_test_lstnew, {"NULL", NULL, NULL, FT_CTYPE_INT}},
 		{ft_do_test_lstnew, {"Character", &c, &c, FT_CTYPE_INT}},
 	};

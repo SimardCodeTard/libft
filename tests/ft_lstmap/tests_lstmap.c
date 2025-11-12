@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 17:06:29 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 18:42:06 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 20:12:01 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,14 @@ t_test_result	ft_do_test_lstmap(void *p)
 
 	new = ft_lstmap(params->lst, params->f, params->del);
 	test_result.success = ft_lsteq(new, params->expected);
-	test_result.result = "lst_sorting segfault flemme";
-	test_result.expected = "lst_sorting segfault flemme";
+	if (ft_lst_has_cycle(new))
+		test_result.result = lst_tostring_str_cyclic(new);
+	else
+		test_result.result = lst_tostring_str(new);
+	if (ft_lst_has_cycle(params->lst))
+		test_result.expected = lst_tostring_str_cyclic(params->lst);
+	else
+		test_result.expected = lst_tostring_str(params->lst);
 	test_result.desc = params->desc;
 	return (test_result);
 }

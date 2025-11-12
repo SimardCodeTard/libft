@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:45:00 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 18:01:49 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 20:27:44 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,20 @@ static void	*ft_clear_return(t_list *n_lst, void (*del)(void *))
 
 t_list	*ft_lstmap_cyclic(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	const	t_list	*the_chosen_one = lst;
+	const t_list	*the_chosen_one = lst;
 	t_list			*new_list;
 	t_list			*current;
+	bool			is_first_iteration;
 
-	if (!lst)
-		return (NULL);
 	new_list = ft_lstnew(NULL);
-	if (!new_list)
+	if (!lst ||!new_list)
 		return (ft_clear_return(new_list, del));
 	current = new_list;
-	while (lst->next != the_chosen_one)
+	is_first_iteration = true;
+	while (lst != the_chosen_one || is_first_iteration)
 	{
 		current->content = f(lst->content);
-		if (lst != the_chosen_one)
+		if (lst != the_chosen_one || is_first_iteration)
 		{
 			current->next = ft_lstnew(NULL);
 			if (!current->next)
@@ -56,6 +56,7 @@ t_list	*ft_lstmap_cyclic(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		}
 		current = current->next;
 		lst = lst->next;
+		is_first_iteration = false;
 	}
 	return (new_list);
 }
