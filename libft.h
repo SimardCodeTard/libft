@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:07:56 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 10:47:28 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 11:18:12 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ void	ft_putnbr_fd(int n, int fd);
 
 t_list	*ft_lstnew(void	*content);
 
-void	ft_lstadd_front(t_list ** lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+
+int		ft_lstsize(t_list *lst);
 
 #endif
