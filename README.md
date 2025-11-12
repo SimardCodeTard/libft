@@ -35,7 +35,7 @@
 - [x] putendl_fd
 - [x] putnbr_fd
 ## Bonus part
-- [ ] lstnew
+- [x] lstnew
 - [ ] lstadd_front
 - [ ] lstsize
 - [ ] lstlast
