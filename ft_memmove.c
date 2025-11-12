@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:14:19 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/06 10:43:26 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 21:06:45 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	if (!dest && !src)
 		return (NULL);
 	if (((long) src) < ((long) dest))
 	{
-		i = n - 1;
-		while (i >= 0)
+		i = n;
+		while (i > 0)
 		{
-			((unsigned char *) dest)[i] = ((unsigned char *) src)[i];
+			((uint8_t *) dest)[i - 1] = ((uint8_t *) src)[i - 1];
 			i--;
 		}
 	}
 	else
 	{
 		i = 0;
-		while (i < (int) n)
+		while (i < n)
 		{
-			((unsigned char *) dest)[i] = ((unsigned char *) src)[i];
+			((uint8_t *) dest)[i] = ((uint8_t *) src)[i];
 			i++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:45:00 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 20:27:44 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 21:23:46 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static void	*ft_clear_return(t_list *n_lst, void (*del)(void *))
 	return (NULL);
 }
 
-t_list	*ft_lstmap_cyclic(t_list *lst, void *(*f)(void *), void (*del)(void *))
+static t_list	*ft_lstmap_cyclic(t_list *lst, void *(*f)(void *),
+	void (*del)(void *))
 {
 	const t_list	*the_chosen_one = lst;
 	t_list			*new_list;

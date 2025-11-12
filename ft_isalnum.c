@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalnum.c                                          :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:10:11 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/03 17:27:47 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 21:20:53 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (8);
-	return (0);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

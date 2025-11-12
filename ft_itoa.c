@@ -6,22 +6,22 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 13:18:00 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 16:12:12 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 20:55:53 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static long	ft_abs(long n)
+static uint32_t	ft_abs(int32_t n)
 {
 	if (n < 0)
 		return (-n);
 	return (n);
 }
 
-static int	numlen(long n)
+static int8_t	numlen(uint32_t n)
 {
-	int	len;
+	int8_t	len;
 
 	len = 1;
 	while (n > 9)
@@ -34,26 +34,25 @@ static int	numlen(long n)
 
 char	*ft_itoa(int n)
 {
-	char	*res;
-	int		len;
-	bool	is_neg;
-	int		i;
+	char		*res;
+	int8_t		len;
+	int8_t		i;
+	uint32_t	u_n;
+	bool		is_neg;
 
 	is_neg = n < 0;
-	len = numlen(ft_abs((long) n));
+	len = numlen(ft_abs((int32_t) n));
 	if (is_neg)
 		len++;
 	i = 0;
-	n = ft_abs(n);
 	res = ft_calloc(len + 1, sizeof(char));
 	if (!res)
 		return (NULL);
-	if (n == INT_MIN)
-		return (ft_memcpy(res, "-2147483648", 11));
+	u_n = ft_abs(n);
 	while (i < len)
 	{
-		res[len - i - 1] = (n % 10) + '0';
-		n /= 10;
+		res[len - i - 1] = (u_n % 10) + '0';
+		u_n /= 10;
 		i++;
 	}
 	if (is_neg)

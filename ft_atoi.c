@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:28:54 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/07 13:24:47 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 20:34:28 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static int	ft_iswhitespace(char c)
 
 int	ft_atoi(const char *nptr)
 {
-	size_t	res;
-	int		i;
-	int		sign;
+	uint32_t	res;
+	int			i;
+	int			sign;
 
 	res = 0;
 	i = 0;

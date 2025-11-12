@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 10:02:26 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/06 12:33:06 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 21:13:11 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
+	size_t			i;
 	const size_t	dst_len = ft_strlen(dst);
 	const size_t	src_len = ft_strlen(src);
-	size_t			i;
 
 	i = 0;
 	if (size == 0 || size < dst_len)

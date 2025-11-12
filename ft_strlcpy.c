@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:38:58 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/06 11:12:38 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 21:13:23 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		dst[i] = src[i];
 		i++;
 	}
-	dst[i] = 0;
+	dst[i] = '\0';
 	return (src_len);
 }

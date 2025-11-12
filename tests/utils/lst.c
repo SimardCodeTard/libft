@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 17:12:28 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 19:52:50 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 20:32:49 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,10 @@ static bool	ft_lsteq_cyclic(t_list *l1, t_list *l2)
 	while (l1 && l2 && l1->next != the_chosen_one_1 && l2->next != the_chosen_one_2
 		&& !ft_strcmp_safe((char *) l1->content, (char *) l2->content))
 	{
-		printf("[%u] l1 = %p, l2 = %p, l1->content = %s, l2->content = %s\n",
-			(unsigned) t_i,
-			(void *) l1,
-			(void *) l2,
-			l1->content ? (char *) l1->content : "(null)",
-			l2->content ? (char *) l2->content : "(null)");
 		l1 = l1->next;
 		l2 = l2->next;
 		t_i++;
 	}
-	printf("[%u] l1 = %p, l2 = %p, l1->content = %s, l2->content = %s\n",
-		(unsigned) t_i,
-		(void *) l1,
-		(void *) l2,
-		(l1 && l1->content) ? (char *) l1->content : "(null)",
-		(l2 && l2->content) ? (char *) l2->content : "(null)");
 	if (!l1 || !l2)
 		return (l1 == l2);
 	return (!ft_strcmp_safe((char *) l1->content, (char *) l2->content));

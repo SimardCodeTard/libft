@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 13:34:16 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/07 13:46:52 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 21:15:05 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strrchr(const char *s, int c)
 	found = NULL;
 	while (*s)
 	{
-		if (*s == (unsigned char) c)
+		if (*s == (uint8_t) c)
 			found = (char *) s;
 		s++;
 	}
-	if (!((unsigned char) c))
+	if (!((uint8_t) c))
 		return ((char *) s);
 	return (found);
 }

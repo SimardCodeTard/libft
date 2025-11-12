@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 15:33:42 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/06 15:39:16 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 21:00:15 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*cst_s1 = (unsigned char *) s1;
-	const unsigned char	*cst_s2 = (unsigned char *) s2;
-	size_t				i;
+	const uint8_t	*cst_s1 = (uint8_t *) s1;
+	const uint8_t	*cst_s2 = (uint8_t *) s2;
+	size_t			i;
 
 	i = 0;
 	while (i < n)

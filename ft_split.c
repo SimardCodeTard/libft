@@ -6,15 +6,15 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 21:12:33 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/10 16:09:58 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 21:18:31 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**free_splitted(char **splitted, int k)
+static char	**free_splitted(char **splitted, uint32_t k)
 {
-	while (k >= 0)
+	while (k + 1 > 0)
 	{
 		free(splitted[k]);
 		k--;
@@ -39,9 +39,9 @@ static size_t	count_words(const char *s, char c)
 	return (count);
 }
 
-char	*extract_word(const char *s, char c, unsigned int *i)
+static char	*extract_word(const char *s, char c, uint32_t *i)
 {
-	unsigned int	j;
+	uint32_t		j;
 	char			*word;
 
 	word = NULL;
@@ -64,8 +64,8 @@ char	**ft_split(const char *s, char c)
 {
 	char			**splitted;
 	char			*curr_word;
-	unsigned int	i;
-	unsigned int	k;
+	uint32_t		i;
+	uint32_t		k;
 
 	if (!s)
 		return (ft_calloc(1, sizeof(char *)));

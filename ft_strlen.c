@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:07:01 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/04 13:57:08 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 21:13:38 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	c;
+	size_t	len;
 
-	c = 0;
-	while (s[c])
-		c++;
-	return (c);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 10:59:37 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 11:25:26 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/12 20:58:55 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static bool	lst_has_cycle(t_list *lst)
 
 int	ft_lstsize(t_list *lst)
 {
-	uint32_t	size;
+	uint16_t	size;
 
 	if (lst_has_cycle(lst))
 		return (-1);
