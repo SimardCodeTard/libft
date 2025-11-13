@@ -67,24 +67,24 @@ ALL_OBJ = $(SRCS_OBJ) $(BONUS_OBJ)
 
 NAME = libft.a
 
-all: $(NAME)
-
-$(NAME) : $(MANDATORY_DONE)
+all: $(MANDATORY_DONE)
 
 $(MANDATORY_DONE) : ${SRCS_OBJ}
 	ar rcs $(NAME) $(SRCS_OBJ)
+	rm -f ${BONUS_DONE}
 	touch ${MANDATORY_DONE}
 
 bonus: $(BONUS_DONE)
 
 $(BONUS_DONE): $(ALL_OBJ)
 	ar rcs $(NAME) $(ALL_OBJ)
+	rm -f ${MANDATORY_DONE}
 	touch $(BONUS_DONE)
 
 $(NAME): $(SRCS_OBJ)
 	ar rcs $(NAME) $(SRCS_OBJ)
 
-%.o: %.c %(ALL_OBJ)
+%.o: %.c
 	$(CC) -c $(CFLAGS) -MMD -MP $< -o $@
 
 clean:
@@ -95,6 +95,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all bonus clean fclean re %.o
 
 -include : $(DFILES)
