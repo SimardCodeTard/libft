@@ -5,6 +5,6 @@
 *.d
 *.a
 .make_*_done
-tests
+tests/
 README.md
 run_tests.sh
