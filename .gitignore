@@ -5,6 +5,3 @@
 *.d
 *.a
 .make_*_done
-tests/
-README.md
-run_tests.sh
