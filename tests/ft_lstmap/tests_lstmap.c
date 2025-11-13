@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 17:06:29 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 20:12:01 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/13 13:03:15 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ t_test_set_result	ft_tests_lstmap(void)
 		tests[i].params = (void *) &test_cases[i].params;
 		i++;
 	}
-	result = ft_run_tests("ft_lstnew", tests, total);
+	result = ft_run_tests("ft_lstmap", tests, total);
 	free(tests);
 	return (result);
 }
