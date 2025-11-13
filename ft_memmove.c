@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:14:19 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 21:06:45 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/13 18:10:56 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	if (!dest && !src)
 		return (NULL);
-	if (((long) src) < ((long) dest))
+	if ((( long ) src) < ((long ) dest))
 	{
 		i = n;
 		while (i > 0)

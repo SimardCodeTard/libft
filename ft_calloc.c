@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 13:32:49 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/13 12:47:54 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/13 17:42:34 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*s;
 
-	if (nmemb * size > INT_MAX)
+	if (size > INT_MAX/nmemb )
 		return (NULL);
 	if (!nmemb || !size)
 		return (malloc(0));
