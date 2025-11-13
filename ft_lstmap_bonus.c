@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:45:00 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/13 12:39:53 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/13 13:01:05 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ static void	*ft_clear_return(t_list *n_lst, void (*del)(void *))
 	return (NULL);
 }
 
+static t_list	*init_next_node(t_list *current)
+{
+	current->next = ft_lstnew(NULL);
+	if (!current->next)
+		return (NULL);
+	return (current);
+}
+
 static t_list	*ft_lstmap_cyclic(t_list *lst, void *(*f)(void *),
 	void (*del)(void *))
 {
@@ -49,12 +57,11 @@ static t_list	*ft_lstmap_cyclic(t_list *lst, void *(*f)(void *),
 	while (lst != the_chosen_one || is_first_iteration)
 	{
 		current->content = f(lst->content);
+		if (!current->content)
+			return (ft_clear_return(new_list, del));
 		if (lst != the_chosen_one || is_first_iteration)
-		{
-			current->next = ft_lstnew(NULL);
-			if (!current->next)
+			if (!init_next_node(current))
 				return (ft_clear_return(new_list, del));
-		}
 		current = current->next;
 		lst = lst->next;
 		is_first_iteration = false;
@@ -78,12 +85,11 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst)
 	{
 		current->content = f(lst->content);
+		if (!current->content)
+			return (ft_clear_return(new_list, del));
 		if (lst->next)
-		{
-			current->next = ft_lstnew(NULL);
-			if (!current->next)
+			if (!init_next_node(current))
 				return (ft_clear_return(new_list, del));
-		}
 		current = current->next;
 		lst = lst->next;
 	}
