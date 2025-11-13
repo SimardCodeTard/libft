@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:45:00 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/13 13:01:05 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/13 20:33:17 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static t_list	*ft_lstmap_cyclic(t_list *lst, void *(*f)(void *),
 	bool			is_first_iteration;
 
 	new_list = ft_lstnew(NULL);
-	if (!lst ||!new_list)
+	if (!lst || !new_list)
 		return (ft_clear_return(new_list, del));
 	current = new_list;
 	is_first_iteration = true;

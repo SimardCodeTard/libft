@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:01:49 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 14:43:16 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/13 20:36:37 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 
 	if (!lst || !f)
 		return ;
+	stop_value = NULL;
 	if (lst_has_cycle(lst))
 		stop_value = lst;
-	else
-		stop_value = NULL;
 	while (lst->next != stop_value)
 	{
 		f(lst->content);
