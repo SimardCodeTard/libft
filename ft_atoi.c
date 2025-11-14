@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:28:54 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/14 17:20:47 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/14 17:22:00 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_iswhitespace(char c)
 
 int	ft_atoi(const char *nptr)
 {
-	int8_t		res;
+	uint32_t	res;
 	int			i;
 	int			sign;
 
