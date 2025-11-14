@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:28:54 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/13 17:39:19 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/14 10:20:36 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int	ft_atoi(const char *nptr)
 		if (nptr[i++] == '-')
 			sign = -1;
 	while (ft_isdigit(nptr[i]))
-		res =  res * 10 + (nptr[i++] - 48);
+		res = res * 10 + (nptr[i++] - 48);
 	return ((int)(res * sign));
 }

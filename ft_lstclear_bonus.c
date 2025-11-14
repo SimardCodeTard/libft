@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:56:26 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/13 17:49:00 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/13 20:32:26 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	if (!lst || !*lst || !del)
 		return ;
 	if (lst_has_cycle(*lst))
-		return (ft_lstclear_cyclic(lst, del, *lst));
+		return (ft_lstclear_cyclic(lst, del, (*lst)->next));
 	ft_lstclear(&(*lst)->next, del);
 	del((*lst)->content);
 	free(*lst);

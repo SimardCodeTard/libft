@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:07:01 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/13 17:52:28 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/13 20:41:32 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_strlen(const char *s)
 {
 	size_t	len;
-	
+
 	len = 0;
 	while (s[len])
 		len++;
