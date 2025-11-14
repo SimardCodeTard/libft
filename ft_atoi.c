@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:28:54 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 20:34:28 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/14 10:20:36 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,9 @@ int	ft_atoi(const char *nptr)
 	while (ft_iswhitespace(nptr[i]))
 		i++;
 	if (ft_issign(nptr[i]))
-	{
-		if (nptr[i] == '-')
+		if (nptr[i++] == '-')
 			sign = -1;
-		i++;
-	}
 	while (ft_isdigit(nptr[i]))
-	{
-		res *= 10;
-		res += (nptr[i] - 48);
-		i++;
-	}
+		res = res * 10 + (nptr[i++] - 48);
 	return ((int)(res * sign));
 }

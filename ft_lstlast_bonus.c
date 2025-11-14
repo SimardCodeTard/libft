@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:31:35 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 13:35:07 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/13 20:33:00 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (lst_has_cycle(lst) || !lst)
 		return (NULL);
-	while (lst->next)
+	while (lst && lst->next)
 	{
 		lst = lst->next;
 	}
