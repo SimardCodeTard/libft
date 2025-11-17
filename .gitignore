@@ -4,6 +4,7 @@
 *.o
 *.d
 *.a
+ft_calloc.c
 .make_*_done
 tests
 README.md
