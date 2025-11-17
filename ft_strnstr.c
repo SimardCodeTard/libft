@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smenard <smenard@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:12:40 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/06 16:56:15 by smenard          ###   ########lyon.fr   */
+/*   Updated: 2025/11/17 13:29:34 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ static size_t	ft_substr_found_len(const char *from, const char *sub)
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t			i;
-	const size_t	little_len = ft_strlen(little);
+	size_t	i;
+	size_t	little_len;
 
+	little_len = ft_strlen(little);
 	if (!little[0])
 		return ((char *) big);
 	i = 0;

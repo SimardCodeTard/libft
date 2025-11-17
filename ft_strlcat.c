@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 10:02:26 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 21:13:11 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/17 13:30:37 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t			i;
-	const size_t	dst_len = ft_strlen(dst);
-	const size_t	src_len = ft_strlen(src);
+	size_t	i;
+	size_t	dst_len;
+	size_t	src_len;
 
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
 	i = 0;
 	if (size == 0 || size < dst_len)
 		return (src_len + size);

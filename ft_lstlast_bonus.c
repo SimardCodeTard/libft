@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:31:35 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/13 20:33:00 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/17 13:26:54 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 static bool	lst_has_cycle(t_list *lst)
 {
-	const t_list	*the_chosen_one = lst;
+	t_list	*the_chosen_one;
 
+	the_chosen_one = lst;
 	if (!lst)
 		return (false);
 	while (lst->next)

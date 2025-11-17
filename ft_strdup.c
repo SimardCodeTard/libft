@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:43:01 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 21:12:39 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/17 13:32:26 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 char	*ft_strdup(const char *s)
 {
-	const size_t	s_len = ft_strlen(s);
-	char			*ns;
-	uint32_t		i;
+	size_t		s_len;
+	char		*ns;
+	uint32_t	i;
 
 	i = 0;
-	ns = malloc((s_len + 1) * sizeof(char));
+	s_len = ft_strlen(s);
+	ns = ft_calloc((s_len + 1), sizeof(char));
 	if (!ns)
 		return (NULL);
 	while (s[i])
@@ -27,6 +28,5 @@ char	*ft_strdup(const char *s)
 		ns[i] = s[i];
 		i++;
 	}
-	ns[i] = '\0';
 	return (ns);
 }

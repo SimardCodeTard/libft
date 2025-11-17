@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 14:45:00 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/13 20:33:17 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/17 13:26:39 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 static bool	lst_has_cycle(t_list *lst)
 {
-	const t_list	*the_chosen_one = lst;
+	t_list	*the_chosen_one;
 
+	the_chosen_one = lst;
 	if (!lst)
 		return (false);
 	while (lst->next)
@@ -44,11 +45,12 @@ static t_list	*init_next_node(t_list *current)
 static t_list	*ft_lstmap_cyclic(t_list *lst, void *(*f)(void *),
 	void (*del)(void *))
 {
-	const t_list	*the_chosen_one = lst;
-	t_list			*new_list;
-	t_list			*current;
-	bool			is_first_iteration;
+	t_list	*the_chosen_one;
+	t_list	*new_list;
+	t_list	*current;
+	bool	is_first_iteration;
 
+	the_chosen_one = lst;
 	new_list = ft_lstnew(NULL);
 	if (!lst || !new_list)
 		return (ft_clear_return(new_list, del));

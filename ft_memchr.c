@@ -6,7 +6,7 @@
 /*   By: smenard <smenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 15:25:27 by smenard           #+#    #+#             */
-/*   Updated: 2025/11/12 20:59:52 by smenard          ###   ########.fr       */
+/*   Updated: 2025/11/17 13:27:21 by smenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const uint8_t	*cst_s = (uint8_t *) s;
-	const uint8_t	cst_c = (uint8_t) c;
-	size_t			i;
+	uint8_t	*cst_s;
+	uint8_t	cst_c;
+	size_t	i;
 
+	cst_s = (uint8_t *) s;
+	cst_c = (uint8_t) c;
 	i = 0;
 	while (i < n)
 	{
