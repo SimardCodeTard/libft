@@ -4,4 +4,5 @@
 *.o
 *.d
 *.a
+*.out
 .make_*_done
