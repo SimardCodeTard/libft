@@ -1,7 +1,5 @@
 CFLAGS = -Wall -Wextra -Werror
 
-CC = cc
-
 SRC_FILES = ft_isascii.c \
 		ft_memcpy.c \
 		ft_bzero.c \
